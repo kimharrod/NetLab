@@ -1,0 +1,27 @@
+{
+  "name": "netlab",
+  "version": "1.0.0",
+  "description": "Virtual lab environment",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kimharrod/NetLab.git"
+  },
+  "keywords": [
+    "react",
+    "node",
+    "express",
+    "mongodb",
+    "mongoose"
+  ],
+  "author": "Kimberly Harrod",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kimharrod/NetLab/issues"
+  },
+  "homepage": "https://github.com/kimharrod/NetLab#readme"
+}
