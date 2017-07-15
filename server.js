@@ -38,7 +38,48 @@ db.once("open", function() {
 });
 
 // Routes
+// Route to seed the slide db
+dbapp.get("/api/seed", function(req, res) {
 
+	// make an array of slide objects to seed the database
+	var seedSlides = [
+		{number: '66500', 
+		 category: 'Histology', 
+		 structure: 'Ilium (Dog)', 
+		 system: 'Digestive System'},
+		{number: '66578', 
+		 category: 'Histology', 
+		 structure: 'Jejunum (Dog)', 
+		 system: 'Digestive System'},
+		{number: '66817', 
+		 category: 'Histology', 
+		 structure: 'Simple Columnar Epithelium', 
+		 system: 'Epithelial Tissues'},
+		{number: '66821', 
+		 category: 'Histology', 
+		 structure: 'Stratified Squamous Epithelium', 
+		 system: 'Epithelial Tissues'},
+		{number: '66398', 
+		 category: 'Histology', 
+		 structure: 'Lymph Node (Human)', 
+		 system: 'Lymphoid Tissues and Organs'}];
+
+	
+		for (i=0; i < seedSlides.length; i++) {
+
+        	var newSlide = new Slide(seedSlides[i]);
+
+        	newSlide.save(function(error, doc) {
+
+				// Log any errors
+				if (error) {
+					console.log(err);
+				}
+			});
+
+		} //end for all seedSlides
+				
+}); // end seed route
 
 // Start the server to begin listening
 dbapp.listen(PORT, function() {
