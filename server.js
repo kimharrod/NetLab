@@ -81,6 +81,11 @@ dbapp.get("/api/seed", function(req, res) {
 				
 }); // end seed route
 
+// Root route
+dbapp.get('/', (req,res) => {
+	res.send(__dirname + '/public/index.html');
+});
+
 // Start the server to begin listening
 dbapp.listen(PORT, function() {
 	console.log("App listening on PORT " + PORT);
