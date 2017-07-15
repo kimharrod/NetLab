@@ -8,7 +8,7 @@ var mongoose = require("mongoose");
 mongoose.promise = Promise;
 
 // Require the Slide model
-var Slide = require(".models/slide.js");
+var Slide = require("./models/slide.js");
 
 // Initialize Express
 var dbapp = express();
