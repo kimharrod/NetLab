@@ -23,8 +23,9 @@ componentDidMount: function () {
 
 				return (
 					<li key={data[s].number} ><Link to={viewpath}>System: {data[s].system}<br/>
+					Structure: {data[s].structure} </Link><br/>
 					</li>
-					)
+				)
 			});
 
 			this.setState({ slides: slideSet});

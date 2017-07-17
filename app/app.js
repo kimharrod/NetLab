@@ -1,9 +1,10 @@
 // Import React dependencies
 import React from 'react'
 import { render } from 'react-dom'
-import { Router, Route, browserHistory} from 'react-router'
+import { Router, Route, IndexRoute, hashHistory} from 'react-router'
 
 // Import home component and children components
+import Login from './children/login'
 import Home from './children/home'
 import Menu from './children/menu'
 import Viewer from './children/viewer'
@@ -15,10 +16,12 @@ import Profile from './children/profile'
 
 // Set up react router
 render((
-	<Router history={browserHistory}>
-		<Route path="/" component={Home}>
+	<Router history={hashHistory}>
+		<Route path="/" component={Login}/>
+		<Route path="/home" component={Home}>
 
 			{/* make the following components children of "Home" */}
+			<IndexRoute component={Menu}/>
 			<Route path="/menu" component={Menu}/>
 			<Route path="/search" component={Search}/>
 	      	<Route path="/newnote" component={Newnote}/>
