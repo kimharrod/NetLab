@@ -25516,7 +25516,7 @@
 						_react2.default.createElement(
 							_reactRouter.Link,
 							{ to: '/newnote' },
-							'Note '
+							'Add Note '
 						),
 						'| ',
 						_react2.default.createElement(
@@ -25577,7 +25577,7 @@
 
 				// assemble the menu for display and applying hyperlinks to each menu item
 				var slideSet = Object.keys(data).map(function (s) {
-					var viewpath = '/viewer' + data[s].number;
+					var viewpath = '/viewer/' + data[s].number;
 
 					return _react2.default.createElement(
 						"li",
@@ -25873,12 +25873,24 @@
 
 	  componentDidMount: function componentDidMount() {
 
-	    // Initialize the FirebaseUI widget using Firebase.
+	    // Initialize the FirebaseUI widget using Firebase
 	    var ui = new _firebaseui2.default.auth.AuthUI(_firebase2.default.auth());
 	    var uiConfig = {
 	      'signInSuccessUrl': '/#/home',
 	      'signInOptions': [_firebase2.default.auth.EmailAuthProvider.PROVIDER_ID],
-	      'signInFlow': 'popup'
+	      'signInFlow': 'popup',
+	      callbacks: {
+	        // function that runs upon successful authentication
+	        signInSuccess: function (currentUser, credential, redirectUrl) {
+	          console.log(JSON.stringify(currentUser));
+	          console.log("Signed in as " + currentUser.uid + " with redirectUrl " + redirectUrl);
+	          // conveniently store userId and name for access by other components
+	          localStorage.setItem("userId", currentUser.uid);
+	          localStorage.setItem("displayName", currentUser.displayName);
+	          // redirect to the app home component once sign-in is successful
+	          window.location = '/#/home';
+	        }.bind(this)
+	      }
 	    };
 	    ui.start('#firebaseui-auth-container', uiConfig);
 	  },

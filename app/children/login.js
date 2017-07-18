@@ -22,14 +22,26 @@ export default React.createClass({
 
 componentDidMount: function () {
 
-// Initialize the FirebaseUI widget using Firebase.
+// Initialize the FirebaseUI widget using Firebase
     var ui = new Firebaseui.auth.AuthUI(Firebase.auth());
     var uiConfig = {
       'signInSuccessUrl': '/#/home',
       'signInOptions': [
         Firebase.auth.EmailAuthProvider.PROVIDER_ID
       ],
-      'signInFlow': 'popup'
+      'signInFlow': 'popup',
+      callbacks: {
+        // function that runs upon successful authentication
+        signInSuccess: function(currentUser, credential, redirectUrl) {
+          console.log(JSON.stringify(currentUser));
+          console.log("Signed in as "+ currentUser.uid + " with redirectUrl " + redirectUrl);
+          // conveniently store userId and name for access by other components
+          localStorage.setItem("userId", currentUser.uid);
+          localStorage.setItem("displayName", currentUser.displayName);
+          // redirect to the app home component once sign-in is successful
+          window.location = '/#/home';
+        }.bind(this)
+      }
     };
     ui.start('#firebaseui-auth-container', uiConfig)
    

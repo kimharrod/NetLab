@@ -38,6 +38,22 @@ db.once("open", function() {
 });
 
 // Routes
+
+// Route to retrieve list of slides from the MongoDB
+dbapp.get("/api/slides/", function(req, res) {
+
+	Slide.find({}, function(error, doc) {
+
+		//Log any errors
+		if (error) {
+			console.log(error);
+		}
+		else {
+			res.json(doc);
+		}
+	});
+});
+
 // Route to seed the slide db
 dbapp.get("/api/seed", function(req, res) {
 

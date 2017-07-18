@@ -13,7 +13,7 @@ export default React.createClass({
 	          <Link to="/menu">Menu </Link>
 	        | <Link to="/viewer/direct">Viewer </Link> 
 	        | <Link to="/search">Search </Link>
-	        | <Link to="/newnote">Note </Link>
+	        | <Link to="/newnote">Add Note </Link>
 	        | <Link to="/bookmarks">Bookmarks </Link>
 	        | <Link to="/profile">Profile </Link></h3>
 	          </center>
