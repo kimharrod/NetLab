@@ -38,6 +38,7 @@ componentDidMount: function () {
           // conveniently store userId and name for access by other components
           localStorage.setItem("userId", currentUser.uid);
           localStorage.setItem("displayName", currentUser.displayName);
+          localStorage.setItem("email", currentUser.email);
           // redirect to the app home component once sign-in is successful
           window.location = '/#/home';
         }.bind(this)

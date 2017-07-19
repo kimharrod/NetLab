@@ -12,6 +12,7 @@ import Search from './children/search'
 import Newnote from './children/newnote'
 import Bookmarks from './children/bookmarks'
 import Profile from './children/profile'
+import Shownotes from './children/shownotes'
 
 
 // Set up react router
@@ -27,9 +28,10 @@ render((
 	      	<Route path="/newnote" component={Newnote}/>
 	      	<Route path="/bookmarks" component={Bookmarks}/>
 	      	<Route path="/profile" component={Profile}/>
+	      	<Route path="/shownotes" component={Shownotes}/>
 			
 			{/* route to pass the slideNum parameter to the child */}
-			<Route path="/viewer/:slideNum" component={ Viewer }/>
+			<Route path="/viewer/:slideNum" component={Viewer}/>
 
 		</Route>
 	</Router>

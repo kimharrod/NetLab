@@ -34,7 +34,10 @@ componentWillUnmount: function () {
   		}
 
   		// or display the slide selected from menu
-	   	return <div><iframe id="scopeView" src={url} height="600" width="100%"></iframe>
+  		// include buttons for adding and showing notes
+	   	return <div><Link to='/newnote'><button id="addNote"></button></Link>
+	   	<iframe id="scopeView" src={url} height="600" width="100%"></iframe>
+	   	<Link to='/shownotes'><button id="showNotes">N</button></Link>
 		</div>
   }
 })

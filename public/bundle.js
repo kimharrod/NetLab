@@ -86,12 +86,14 @@
 
 	var _profile2 = _interopRequireDefault(_profile);
 
+	var _shownotes = __webpack_require__(291);
+
+	var _shownotes2 = _interopRequireDefault(_shownotes);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	// Set up react router
-
-
-	// Import home component and children components
+	// Import React dependencies
 	(0, _reactDom.render)(_react2.default.createElement(
 		_reactRouter.Router,
 		{ history: _reactRouter.hashHistory },
@@ -105,9 +107,12 @@
 			_react2.default.createElement(_reactRouter.Route, { path: '/newnote', component: _newnote2.default }),
 			_react2.default.createElement(_reactRouter.Route, { path: '/bookmarks', component: _bookmarks2.default }),
 			_react2.default.createElement(_reactRouter.Route, { path: '/profile', component: _profile2.default }),
+			_react2.default.createElement(_reactRouter.Route, { path: '/shownotes', component: _shownotes2.default }),
 			_react2.default.createElement(_reactRouter.Route, { path: '/viewer/:slideNum', component: _viewer2.default })
 		)
-	), document.getElementById('app')); // Import React dependencies
+	), document.getElementById('app'));
+
+	// Import home component and children components
 
 /***/ }),
 /* 1 */
@@ -25663,10 +25668,25 @@
 	    }
 
 	    // or display the slide selected from menu
+	    // include buttons for adding and showing notes
 	    return _react2.default.createElement(
 	      'div',
 	      null,
-	      _react2.default.createElement('iframe', { id: 'scopeView', src: url, height: '600', width: '100%' })
+	      _react2.default.createElement(
+	        Link,
+	        { to: '/newnote' },
+	        _react2.default.createElement('button', { id: 'addNote' })
+	      ),
+	      _react2.default.createElement('iframe', { id: 'scopeView', src: url, height: '600', width: '100%' }),
+	      _react2.default.createElement(
+	        Link,
+	        { to: '/shownotes' },
+	        _react2.default.createElement(
+	          'button',
+	          { id: 'showNotes' },
+	          'N'
+	        )
+	      )
 	    );
 	  }
 	});
@@ -25887,6 +25907,7 @@
 	          // conveniently store userId and name for access by other components
 	          localStorage.setItem("userId", currentUser.uid);
 	          localStorage.setItem("displayName", currentUser.displayName);
+	          localStorage.setItem("email", currentUser.email);
 	          // redirect to the app home component once sign-in is successful
 	          window.location = '/#/home';
 	        }.bind(this)
@@ -35199,6 +35220,12 @@
 	  return ReactFireMixin;
 	}));
 
+
+/***/ }),
+/* 291 */
+/***/ (function(module, exports) {
+
+	"use strict";
 
 /***/ })
 /******/ ]);
