@@ -8,7 +8,7 @@ import Login from './children/login'
 import Home from './children/home'
 import Menu from './children/menu'
 import Viewer from './children/viewer'
-import Note from './children/note'
+import Singlenote from './children/singlenote'
 import Notes from './children/notes'
 import Savednotes from './children/savednotes'
 import Createnote from './children/createnote'
@@ -26,7 +26,6 @@ render((
 
 			{/* make the following components children of "Home" */}
 			<IndexRoute component={Menu}/>
-			<Route path="/note" component={Note}/>
       		<Route path="/notes" component={Notes}/>
 			<Route path="/savednotes" component={Savednotes}/>
       		<Route path="/createnote" component={Newnote}/>
@@ -35,8 +34,12 @@ render((
       		<Route path="/allnotes" component={Allnotes}/>
       		<Route path="/mynotes" component={Mynotes}/>
 			
-			{/* route to pass the slideNum parameter to the child */}
+			{/* route to pass parameters to the viewer component */}
 			<Route path="/viewer/:slideNum/:slideStruc/:slideSys" component={Viewer}/>
+
+			{/* route to pass parameters to the singlenote component */}
+			<Route path="/singlenote/:author/:sys/:struc/:subj/:body/:num/:loc" component={Singlenote}/>
+
 
 		</Route>
 	</Router>

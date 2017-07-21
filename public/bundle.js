@@ -70,9 +70,9 @@
 
 	var _viewer2 = _interopRequireDefault(_viewer);
 
-	var _note = __webpack_require__(295);
+	var _singlenote = __webpack_require__(299);
 
-	var _note2 = _interopRequireDefault(_note);
+	var _singlenote2 = _interopRequireDefault(_singlenote);
 
 	var _notes = __webpack_require__(296);
 
@@ -90,7 +90,7 @@
 
 	var _pins2 = _interopRequireDefault(_pins);
 
-	var _profile = __webpack_require__(228);
+	var _profile = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./children/profile\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	var _profile2 = _interopRequireDefault(_profile);
 
@@ -116,7 +116,7 @@
 			_reactRouter.Route,
 			{ path: '/home', component: _home2.default },
 			_react2.default.createElement(_reactRouter.IndexRoute, { component: _menu2.default }),
-			_react2.default.createElement(_reactRouter.Route, { path: '/note', component: _note2.default }),
+			_react2.default.createElement(_reactRouter.Route, { path: '/singlenote', component: _singlenote2.default }),
 			_react2.default.createElement(_reactRouter.Route, { path: '/notes', component: _notes2.default }),
 			_react2.default.createElement(_reactRouter.Route, { path: '/savednotes', component: _savednotes2.default }),
 			_react2.default.createElement(_reactRouter.Route, { path: '/createnote', component: Newnote }),
@@ -25707,34 +25707,7 @@
 /* 225 */,
 /* 226 */,
 /* 227 */,
-/* 228 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.default = _react2.default.createClass({
-		displayName: 'profile',
-		render: function render() {
-
-			return _react2.default.createElement(
-				'div',
-				null,
-				'Profile'
-			);
-		}
-	});
-
-/***/ }),
+/* 228 */,
 /* 229 */
 /***/ (function(module, exports) {
 
@@ -35238,34 +35211,7 @@
 	});
 
 /***/ }),
-/* 295 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.default = _react2.default.createClass({
-		displayName: 'note',
-		render: function render() {
-
-			return _react2.default.createElement(
-				'div',
-				null,
-				'SingleNote'
-			);
-		}
-	});
-
-/***/ }),
+/* 295 */,
 /* 296 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -35317,6 +35263,35 @@
 				'div',
 				null,
 				'SavedNotes'
+			);
+		}
+	});
+
+/***/ }),
+/* 298 */,
+/* 299 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+		displayName: 'singlenote',
+		render: function render() {
+
+			return _react2.default.createElement(
+				'div',
+				null,
+				'SingleNote'
 			);
 		}
 	});
