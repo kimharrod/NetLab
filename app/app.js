@@ -8,11 +8,14 @@ import Login from './children/login'
 import Home from './children/home'
 import Menu from './children/menu'
 import Viewer from './children/viewer'
-import Search from './children/search'
-import Newnote from './children/newnote'
-import Bookmarks from './children/bookmarks'
+import Note from './children/note'
+import Notes from './children/notes'
+import Savednotes from './children/savednotes'
+import Createnote from './children/createnote'
+import Pins from './children/pins'
 import Profile from './children/profile'
-import Shownotes from './children/shownotes'
+import Allnotes from './children/allnotes'
+import Mynotes from './children/mynotes'
 
 
 // Set up react router
@@ -23,15 +26,17 @@ render((
 
 			{/* make the following components children of "Home" */}
 			<IndexRoute component={Menu}/>
-			<Route path="/menu" component={Menu}/>
-			<Route path="/search" component={Search}/>
-	      	<Route path="/newnote" component={Newnote}/>
-	      	<Route path="/bookmarks" component={Bookmarks}/>
-	      	<Route path="/profile" component={Profile}/>
-	      	<Route path="/shownotes" component={Shownotes}/>
+			<Route path="/note" component={Note}/>
+      		<Route path="/notes" component={Notes}/>
+			<Route path="/savednotes" component={Savednotes}/>
+      		<Route path="/createnote" component={Newnote}/>
+      		<Route path="/pins" component={Pins}/>
+      		<Route path="/profile" component={Profile}/>
+      		<Route path="/allnotes" component={Allnotes}/>
+      		<Route path="/mynotes" component={Mynotes}/>
 			
 			{/* route to pass the slideNum parameter to the child */}
-			<Route path="/viewer/:slideNum" component={Viewer}/>
+			<Route path="/viewer/:slideNum/:slideStruc/:slideSys" component={Viewer}/>
 
 		</Route>
 	</Router>

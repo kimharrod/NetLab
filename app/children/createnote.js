@@ -4,6 +4,6 @@ export default React.createClass({
 
 	render() {
 
-		return <div>Bookmarks</div>
+		return <div>CreateNote</div>
 	}
 })

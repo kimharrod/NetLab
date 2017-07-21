@@ -70,30 +70,44 @@
 
 	var _viewer2 = _interopRequireDefault(_viewer);
 
-	var _search = __webpack_require__(225);
+	var _note = __webpack_require__(295);
 
-	var _search2 = _interopRequireDefault(_search);
+	var _note2 = _interopRequireDefault(_note);
 
-	var _newnote = __webpack_require__(226);
+	var _notes = __webpack_require__(296);
 
-	var _newnote2 = _interopRequireDefault(_newnote);
+	var _notes2 = _interopRequireDefault(_notes);
 
-	var _bookmarks = __webpack_require__(227);
+	var _savednotes = __webpack_require__(297);
 
-	var _bookmarks2 = _interopRequireDefault(_bookmarks);
+	var _savednotes2 = _interopRequireDefault(_savednotes);
+
+	var _createnote = __webpack_require__(298);
+
+	var _createnote2 = _interopRequireDefault(_createnote);
+
+	var _pins = __webpack_require__(292);
+
+	var _pins2 = _interopRequireDefault(_pins);
 
 	var _profile = __webpack_require__(228);
 
 	var _profile2 = _interopRequireDefault(_profile);
 
-	var _shownotes = __webpack_require__(291);
+	var _allnotes = __webpack_require__(293);
 
-	var _shownotes2 = _interopRequireDefault(_shownotes);
+	var _allnotes2 = _interopRequireDefault(_allnotes);
+
+	var _mynotes = __webpack_require__(294);
+
+	var _mynotes2 = _interopRequireDefault(_mynotes);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	// Set up react router
-	// Import React dependencies
+
+
+	// Import home component and children components
 	(0, _reactDom.render)(_react2.default.createElement(
 		_reactRouter.Router,
 		{ history: _reactRouter.hashHistory },
@@ -102,17 +116,17 @@
 			_reactRouter.Route,
 			{ path: '/home', component: _home2.default },
 			_react2.default.createElement(_reactRouter.IndexRoute, { component: _menu2.default }),
-			_react2.default.createElement(_reactRouter.Route, { path: '/menu', component: _menu2.default }),
-			_react2.default.createElement(_reactRouter.Route, { path: '/search', component: _search2.default }),
-			_react2.default.createElement(_reactRouter.Route, { path: '/newnote', component: _newnote2.default }),
-			_react2.default.createElement(_reactRouter.Route, { path: '/bookmarks', component: _bookmarks2.default }),
+			_react2.default.createElement(_reactRouter.Route, { path: '/note', component: _note2.default }),
+			_react2.default.createElement(_reactRouter.Route, { path: '/notes', component: _notes2.default }),
+			_react2.default.createElement(_reactRouter.Route, { path: '/savednotes', component: _savednotes2.default }),
+			_react2.default.createElement(_reactRouter.Route, { path: '/createnote', component: Newnote }),
+			_react2.default.createElement(_reactRouter.Route, { path: '/pins', component: _pins2.default }),
 			_react2.default.createElement(_reactRouter.Route, { path: '/profile', component: _profile2.default }),
-			_react2.default.createElement(_reactRouter.Route, { path: '/shownotes', component: _shownotes2.default }),
-			_react2.default.createElement(_reactRouter.Route, { path: '/viewer/:slideNum', component: _viewer2.default })
+			_react2.default.createElement(_reactRouter.Route, { path: '/allnotes', component: _allnotes2.default }),
+			_react2.default.createElement(_reactRouter.Route, { path: '/mynotes', component: _mynotes2.default }),
+			_react2.default.createElement(_reactRouter.Route, { path: '/viewer/:slideNum/:slideStruc/:slideSys', component: _viewer2.default })
 		)
-	), document.getElementById('app'));
-
-	// Import home component and children components
+	), document.getElementById('app')); // Import React dependencies
 
 /***/ }),
 /* 1 */
@@ -25508,26 +25522,20 @@
 						'| ',
 						_react2.default.createElement(
 							_reactRouter.Link,
-							{ to: '/viewer/direct' },
-							'Viewer '
+							{ to: '/notes' },
+							'Notes '
 						),
 						'| ',
 						_react2.default.createElement(
 							_reactRouter.Link,
-							{ to: '/search' },
-							'Search '
+							{ to: '/viewer/direct/struc/sys' },
+							'Scope '
 						),
 						'| ',
 						_react2.default.createElement(
 							_reactRouter.Link,
-							{ to: '/newnote' },
-							'Add Note '
-						),
-						'| ',
-						_react2.default.createElement(
-							_reactRouter.Link,
-							{ to: '/bookmarks' },
-							'Bookmarks '
+							{ to: '/pins' },
+							'Pins '
 						),
 						'| ',
 						_react2.default.createElement(
@@ -25582,7 +25590,7 @@
 
 				// assemble the menu for display and applying hyperlinks to each menu item
 				var slideSet = Object.keys(data).map(function (s) {
-					var viewpath = '/viewer/' + data[s].number;
+					var viewpath = '/viewer/' + data[s].number + '/' + data[s].structure + '/' + data[s].system;
 
 					return _react2.default.createElement(
 						"li",
@@ -25674,17 +25682,21 @@
 	      null,
 	      _react2.default.createElement(
 	        Link,
-	        { to: '/newnote' },
-	        _react2.default.createElement('button', { id: 'addNote' })
+	        { to: '/createnote' },
+	        _react2.default.createElement(
+	          'button',
+	          { id: 'addNote', className: 'btn btn-default btn-small' },
+	          _react2.default.createElement('span', { className: 'glyphicon glyphicon-pencil' })
+	        )
 	      ),
 	      _react2.default.createElement('iframe', { id: 'scopeView', src: url, height: '600', width: '100%' }),
 	      _react2.default.createElement(
 	        Link,
-	        { to: '/shownotes' },
+	        { to: '/allnotes' },
 	        _react2.default.createElement(
 	          'button',
-	          { id: 'showNotes' },
-	          'N'
+	          { id: 'showNotes', className: 'btn btn-default btn-small' },
+	          _react2.default.createElement('span', { className: 'glyphicon glyphicon-list-alt' })
 	        )
 	      )
 	    );
@@ -25692,90 +25704,9 @@
 	});
 
 /***/ }),
-/* 225 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.default = _react2.default.createClass({
-		displayName: 'search',
-		render: function render() {
-
-			return _react2.default.createElement(
-				'div',
-				null,
-				'Search'
-			);
-		}
-	});
-
-/***/ }),
-/* 226 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.default = _react2.default.createClass({
-		displayName: 'newnote',
-		render: function render() {
-
-			return _react2.default.createElement(
-				'div',
-				null,
-				'Note'
-			);
-		}
-	});
-
-/***/ }),
-/* 227 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.default = _react2.default.createClass({
-		displayName: 'bookmarks',
-		render: function render() {
-
-			return _react2.default.createElement(
-				'div',
-				null,
-				'Bookmarks'
-			);
-		}
-	});
-
-/***/ }),
+/* 225 */,
+/* 226 */,
+/* 227 */,
 /* 228 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -35222,10 +35153,201 @@
 
 
 /***/ }),
-/* 291 */
-/***/ (function(module, exports) {
+/* 291 */,
+/* 292 */
+/***/ (function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+		displayName: 'pins',
+		render: function render() {
+
+			return _react2.default.createElement(
+				'div',
+				null,
+				'Pins'
+			);
+		}
+	});
+
+/***/ }),
+/* 293 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+		displayName: 'allnotes',
+		render: function render() {
+
+			return _react2.default.createElement(
+				'div',
+				null,
+				'AllNotes'
+			);
+		}
+	});
+
+/***/ }),
+/* 294 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+		displayName: 'mynotes',
+		render: function render() {
+
+			return _react2.default.createElement(
+				'div',
+				null,
+				'MyNotes'
+			);
+		}
+	});
+
+/***/ }),
+/* 295 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+		displayName: 'note',
+		render: function render() {
+
+			return _react2.default.createElement(
+				'div',
+				null,
+				'Note'
+			);
+		}
+	});
+
+/***/ }),
+/* 296 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+		displayName: 'notes',
+		render: function render() {
+
+			return _react2.default.createElement(
+				'div',
+				null,
+				'Notes'
+			);
+		}
+	});
+
+/***/ }),
+/* 297 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+		displayName: 'savednotes',
+		render: function render() {
+
+			return _react2.default.createElement(
+				'div',
+				null,
+				'SavedNotes'
+			);
+		}
+	});
+
+/***/ }),
+/* 298 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+		displayName: 'createnote',
+		render: function render() {
+
+			return _react2.default.createElement(
+				'div',
+				null,
+				'CreateNote'
+			);
+		}
+	});
 
 /***/ })
 /******/ ]);

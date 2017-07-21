@@ -19,7 +19,7 @@ componentDidMount: function () {
 
 	// assemble the menu for display and applying hyperlinks to each menu item
 		var slideSet = Object.keys(data).map(function(s) {
-			var viewpath = '/viewer/' + data[s].number;
+			var viewpath = '/viewer/' + data[s].number + '/' + data[s].structure + '/' + data[s].system;
 
 				return (
 					<li key={data[s].number} ><Link to={viewpath}>System: {data[s].system}<br/>

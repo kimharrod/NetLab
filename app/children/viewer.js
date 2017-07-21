@@ -35,9 +35,9 @@ componentWillUnmount: function () {
 
   		// or display the slide selected from menu
   		// include buttons for adding and showing notes
-	   	return <div><Link to='/newnote'><button id="addNote"></button></Link>
+	   	return <div><Link to='/createnote'><button id="addNote" className="btn btn-default btn-small"><span className="glyphicon glyphicon-pencil"></span></button></Link>
 	   	<iframe id="scopeView" src={url} height="600" width="100%"></iframe>
-	   	<Link to='/shownotes'><button id="showNotes">N</button></Link>
-		</div>
+    	<Link to='/allnotes'><button id="showNotes" className="btn btn-default btn-small"><span className="glyphicon glyphicon-list-alt"></span></button></Link>
+    	</div>
   }
 })
