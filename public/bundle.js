@@ -82,7 +82,7 @@
 
 	var _savednotes2 = _interopRequireDefault(_savednotes);
 
-	var _createnote = __webpack_require__(298);
+	var _createnote = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./children/createnote\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	var _createnote2 = _interopRequireDefault(_createnote);
 
@@ -35317,34 +35317,6 @@
 				'div',
 				null,
 				'SavedNotes'
-			);
-		}
-	});
-
-/***/ }),
-/* 298 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.default = _react2.default.createClass({
-		displayName: 'createnote',
-		render: function render() {
-
-			return _react2.default.createElement(
-				'div',
-				null,
-				'CreateNote'
 			);
 		}
 	});
