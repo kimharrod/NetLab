@@ -17,7 +17,7 @@ export default React.createClass({
 	// allows data to be pushed
 	componentWillMount() {
 		this.firebaseRef = Firebase.database().ref("histology");
-	};
+	},
 
 	// updates coordinates if user changes the slide view location
 	componentWillUnmount() {

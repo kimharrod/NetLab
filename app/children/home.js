@@ -12,7 +12,7 @@ export default React.createClass({
 	       <div>
 	        <center><h3>NetLab Histology &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	          <Link to="/menu">Menu </Link>
-	        | <Link to="/notes">Notes </Link>
+	        | <Link to="/mynotesall">Notes </Link>
 	        | <Link to="/viewer/direct/struc/sys">Scope </Link>         
 	        | <Link to="/pins">Pins </Link>
 	        | <Link to="/profile">Profile </Link></h3>

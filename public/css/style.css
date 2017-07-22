@@ -5,8 +5,29 @@
   border: none;
   color: white;
   background-color: #333333;
-  border: none;
   outline: none;
+}
+
+#pinitem:before {
+    /*Using a Bootstrap glyphicon as the bullet point*/
+    content: "\e062";
+    font-family: 'Glyphicons Halflings';
+    font-size: 24px;
+    float: left;
+    margin-top: 4px;
+    margin-left: -17px;
+    color: #CCCCCC;
+}
+
+#noteitem:before {
+    /*Using a Bootstrap glyphicon as the bullet point*/
+    content: "\e022";
+    font-family: 'Glyphicons Halflings';
+    font-size: 24px;
+    float: left;
+    margin-top: 4px;
+    margin-left: -17px;
+    color: #CCCCCC;
 }
 
 #showNotes {
@@ -16,6 +37,21 @@
   border: none;
   color: white;
   background-color: #333333;
+  outline: none;
+}
+
+#pinLoc {
+  position: absolute;
+  bottom: 63px;
+  right: 15px;
+  border: none;
+  color: white;
+  background-color: #333333;
+  outline: none;
+}
+.saveButton {
   border: none;
   outline: none;
+  color: #666666;
+  background-color: #292929;
 }
