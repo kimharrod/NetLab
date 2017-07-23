@@ -65,7 +65,7 @@ export default React.createClass({
 					var loc = url.slice(55);
 
 					// set up the path for the link to view a single note
-					var notepath = '/singlenote/' + notes[s].author + '/' + notes[s].system + '/' + notes[s].structure + '/' + notes[s].subject + '/' + notes[s].body + '/' + num + '/' loc;
+					var notepath = '/singlenote/' + notes[s].key + '/' + loc;
 				
 						// assemble note display and assign link to the list element
 						return (

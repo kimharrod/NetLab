@@ -45,7 +45,7 @@ export default React.createClass({
 
 componentDidMount() {	
 	// set up Firebase connection & get reference to Histology branch
-	// allows data to be pushed
+	// allows data to be fetched
 	this.firebaseRef = Firebase.database().ref("histology");
 		this.firebaseRef.child('/notes').once('value', function(dataSnapshot) {
 			var items = [];
@@ -96,7 +96,7 @@ componentDidMount() {
 		        var num = url.slice(44, 49);
 		        var loc = url.slice(55);  
 		        var viewpath = '/shownotes/' + notes[s].url;
-		        var notepath = '/singlenote/' + notes[s].key; 
+		        var notepath = '/singlenote/' + notes[s].key + '/' +loc; 
 
 	        		if (notes[s].slide === slide) {
 			            return (
@@ -116,7 +116,7 @@ componentDidMount() {
 
 }, 
 
-// updates coordinates if user changes the slide view location
+// updates coordinates if user changes their location in the slide view
 componentWillUnmount() {
 	this.firebaseRef.off();
 
