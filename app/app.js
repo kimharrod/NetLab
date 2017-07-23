@@ -40,8 +40,8 @@ render((
 			{/* route to pass pin parameters from to the viewer component from a pin */}
 			<Route path="/pin/:num/:loc" component={Viewer}/>
 			
-			{/* route to pass parameters to the singlenote component */}
-			<Route path="/singlenote/:author/:sys/:struc/:subj/:body/:num/:loc" component={Singlenote}/>
+			{/* route to pass the note key parameter (the node ID) to the singlenote component */}
+			<Route path="/singlenote/:key" component={Singlenote}/>
 
 			
 
