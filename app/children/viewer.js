@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router'
 import Firebase from 'firebase'
-import reactfire from 'reactfire'
 
 export default React.createClass({
 
@@ -52,6 +51,16 @@ pinThis: function () {
   		var num = this.props.params.slideNum;
   		var struc = this.props.params.slideStruc;
       var sys = this.props.params.slideSys;
+      
+      
+      // detect direct navigation from navbar and load the system & structure from local storage 
+      if (struc === "struc") {
+
+        sys = localStorage.getItem("system");
+        struc = localStorage.getItem("structure");
+
+      }
+
       // write the structure & system to local storage to be used in other components
       localStorage.setItem("structure", struc);
       localStorage.setItem("system", sys);

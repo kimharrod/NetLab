@@ -1,6 +1,5 @@
 import React from 'react'
 import Firebase from 'firebase'
-import reactfire from 'reactfire'
 import { Link } from 'react-router'
 
 export default React.createClass({
@@ -37,12 +36,15 @@ componentWillMount() {
 },  
 
 // updates coordinates if user changes their location in the slide view
+// or goes to a different slide from a note link
 componentWillUnmount() {
 
     var coords = $('#scopeView').get(0).contentWindow.viewCoords;
 
  	  if (coords) {
 		  localStorage.setItem("lastview", coords);
+      localStorage.setItem("structure", this.state.note.structure);
+      localStorage.setItem("system", this. state.note.system);
 	   }
   },
 
@@ -73,18 +75,19 @@ deleteNote() {
     return ( 
    
       <div><iframe id="scopeView" src={url} height="400" width="100%"></iframe><br/><br/>
-  
-          <ul>
-	            <li>Author: {author}</li>
-	            <li>System: {system}</li>
-	            <li>Structure: {structure}</li>
-	            <li>Location: {loc}<button onClick={this.deleteNote} data-key={key} type="button" className="btn btn-muted btn-primary pull-right">Delete Note</button></li>
-	            <br/>
-	            <li id="noteSubj">Subject: {subject}</li>
-	            <li id="noteBody">Note: {body}</li>
-          </ul>
+        <div id="content">
+          
+          <p className="lead">
+            Author: {author}<br/>
+            System: {system}<br/>
+            Structure: {structure}<br/>
+            Location: {loc}<button onClick={this.deleteNote} data-key={key} type="button" className="btn btn-muted btn-primary pull-right">Delete Note</button><br/>
+            <br/>
+            Subject: {subject}<br/>
+            Note: {body}
+          </p>
 
-      
+        </div>
       </div>
     )
   }

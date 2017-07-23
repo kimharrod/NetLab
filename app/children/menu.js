@@ -67,7 +67,7 @@ componentDidMount: function () {
 	render() {
 
 		var slidelist = this.state.slides;
-	    return ( <div>
+	    return ( <div id="menu">
 	        {
 	            slidelist.map((item, index) => {
 	            	
@@ -80,7 +80,7 @@ componentDidMount: function () {
 	                			var viewpath = '/viewer/' + subitem.number + '/' + subitem.structure + '/' + subitem.system;
 
 	                  			return (
-	                     			<ul ><Link to={viewpath}><li>{subitem.structure}</li></Link></ul>
+	                     			<ul ><Link to={viewpath}><li id="slideitem" className="lead">&nbsp;{subitem.structure}</li></Link></ul>
 	                  			)
 	                		})
 	               		}

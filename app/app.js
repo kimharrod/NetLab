@@ -38,7 +38,7 @@ render((
 			<Route path="/viewer/:slideNum/:slideStruc/:slideSys" component={Viewer}/>
 			
 			{/* route to pass pin parameters from to the viewer component from a pin */}
-			<Route path="/pin/:num/:loc" component={Viewer}/>
+			<Route path="/pin/:num/:loc/:slideStruc/:slideSys" component={Viewer}/>
 			
 			{/* route to pass the note key (node ID) and location parameters to the singlenote component */}
 			<Route path="/singlenote/:key/:loc" component={Singlenote}/>

@@ -1,6 +1,5 @@
 import React from 'react'
 import Firebase from 'firebase'
-import reactfire from 'reactfire'
 import { Link } from 'react-router'
 
 export default React.createClass({
@@ -51,7 +50,9 @@ export default React.createClass({
 				// set the state variable notes equal to mynotes (user's notes)
 				this.setState({
 					notes: mynotes,
-					viewUrl: view
+					viewUrl: view,
+					userName: localStorage.getItem("displayName"),
+					userEmail: localStorage.getItem("email")
 				});
 
 				// pull state variable into a local notes object
@@ -69,12 +70,12 @@ export default React.createClass({
 				
 						// assemble note display and assign link to the list element
 						return (
-							<li key={notes[s].key} ><Link to={notepath}>
+							<Link to={notepath}><li id="noteitem" className="lead" key={notes[s].key} >
 								Author: {notes[s].author}<br/>
 								Structure: {notes[s].structure}<br/>
 								Subject: {notes[s].subject}<br/>
-								Note: {notes[s].body}</Link><br/>
-							</li>
+								Note: {notes[s].body}<br/>
+							</li></Link>
 
 						)
 				});
@@ -98,7 +99,10 @@ export default React.createClass({
 
 			return (
 
-				<div>
+				<div id="content">
+				<h2>{this.state.userName}<br/>
+					{this.state.userEmail}</h2>
+				<h3>Notes</h3>
 					<ul>
 
 						{this.state.noteset}
