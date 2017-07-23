@@ -1,6 +1,5 @@
 import React from 'react'
 import Firebase from 'firebase'
-import reactfire from 'reactfire'
 import { Link } from 'react-router'
 
 export default React.createClass({
@@ -100,7 +99,7 @@ componentDidMount() {
 
 	        		if (notes[s].slide === slide) {
 			            return (
-				            <Link to={notepath}><li id="noteitem" key={notes[s].key} >Author: {notes[s].author} 
+				            <Link to={notepath}><li id="noteitem" key={notes[s].key} className="lead">Author: {notes[s].author} 
 				            <button onClick={viewFunction} data-url={notes[s].url} type="button" className="btn btn-muted btn-primary pull-right">View Location</button>
 				            <br/>
 			                Subject: {notes[s].subject}<br/>
@@ -139,19 +138,23 @@ componentWillUnmount() {
 	    return ( 
 	   
 	      <div><iframe id="scopeView" src={url} height="400" width="100%"></iframe><br/><br/>
-	        <div className="container">
-		        <ul className="nav nav-tabs">
-		            <li><Link to="/allnotescurrentslide">All Notes</Link></li>
-		            <li className="active">My Notes</li>
-		        </ul>
+	        <div id="content">
+	        	<div className="container">
+			        <ul className="nav nav-tabs">
+			            <li><Link to="/allnotescurrentslide">All Notes</Link></li>
+			            <li className="active">My Notes</li>
+			        </ul>
 	        
 		        </div>  
+		          
 		          <ul>
 
 		          {this.state.noteset}
 
 		          </ul>
-		        </div>
+	      
+        	</div>
+	      </div>
 
 	    ) // end of return
 

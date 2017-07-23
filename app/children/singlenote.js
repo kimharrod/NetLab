@@ -75,7 +75,7 @@ deleteNote() {
     return ( 
    
       <div><iframe id="scopeView" src={url} height="400" width="100%"></iframe><br/><br/>
-        <div id="content">
+        <div className="content">
           
           <p className="lead">
             Author: {author}<br/>

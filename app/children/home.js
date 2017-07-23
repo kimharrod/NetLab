@@ -50,7 +50,7 @@ export default React.createClass({
 	<hr/>
 	<br/>
     
-    <div className="container marketing">
+    <div className="container">
 
 	        {/* render the child components */}
 	        {this.props.children}

@@ -99,7 +99,7 @@ export default React.createClass({
 
 			return (
 
-				<div id="content">
+				<div className="content">
 				<h2>{this.state.userName}<br/>
 					{this.state.userEmail}</h2>
 				<h3>Notes</h3>

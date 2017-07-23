@@ -1,12 +1,54 @@
-#addNote {
-  position: absolute;
-  bottom: 96px;
-  right: 15px;
-  border: none;
-  color: white;
-  background-color: #333333;
-  outline: none;
+h1 {
+
+  color: #aaaaaa;
+
 }
+
+h2 {
+
+  color: #aaaaaa;
+
+}
+
+#mainFrame {
+
+  height: 500px;
+
+}
+
+h3 {
+
+  color: #aaaaaa;
+
+}
+
+.lead {
+
+  color: #dddddd;
+
+}
+
+.tab-pane {
+ position: absolute;
+   top: 420px;
+   bottom: 0;
+   right: 0;
+   left: 0;
+   overflow:auto;
+}
+
+.content {
+  width: 100% ;
+  margin-left: auto ;
+  margin-right: auto ;
+}
+
+#menu {
+  width: 700px ;
+  margin-left: auto ;
+  margin-right: auto ;
+}
+
 
 #pinitem:before {
     /*Using a Bootstrap glyphicon as the bullet point*/
@@ -15,7 +57,19 @@
     font-size: 24px;
     float: left;
     margin-top: 4px;
-    margin-left: -17px;
+    margin-left: -27px;
+    color: #CCCCCC;
+    opacity: 1;
+}
+
+#slideitem:before {
+    /*Using a Bootstrap glyphicon as the bullet point*/
+    content: "\f283";
+    font-family: 'WebHostingHub-Glyphs';
+    font-size: 30px;
+    float: left;
+    margin-top: -5px;
+    margin-left: -27px;
     color: #CCCCCC;
 }
 
@@ -26,14 +80,25 @@
     font-size: 24px;
     float: left;
     margin-top: 4px;
-    margin-left: -17px;
+    margin-left: -27px;
     color: #CCCCCC;
 }
+
+#addNote {
+  position: absolute;
+  bottom: 96px;
+  right: 25px;
+  border: none;
+  color: white;
+  background-color: #333333;
+  outline: none;
+}
+
 
 #showNotes {
   position: absolute;
   bottom: 30px;
-  right: 15px;
+  right: 25px;
   border: none;
   color: white;
   background-color: #333333;
@@ -43,7 +108,7 @@
 #pinLoc {
   position: absolute;
   bottom: 63px;
-  right: 15px;
+  right: 25px;
   border: none;
   color: white;
   background-color: #333333;
