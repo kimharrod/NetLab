@@ -42,7 +42,7 @@ export default React.createClass({
   	},
 
 
-componentDidMount() {	
+	componentDidMount() {	
 	// set up Firebase connection & get reference to Histology branch
 	// allows data to be fetched
 	this.firebaseRef = Firebase.database().ref("histology");
@@ -113,17 +113,17 @@ componentDidMount() {
 	
 		}.bind(this));
 
-}, 
+	}, 
 
-// updates coordinates if user changes their location in the slide view
-componentWillUnmount() {
-	this.firebaseRef.off();
+	// updates coordinates if user changes their location in the slide view
+	componentWillUnmount() {
+		this.firebaseRef.off();
 
-	var coords = $('#scopeView').get(0).contentWindow.viewCoords;
-	if (coords) {
-		localStorage.setItem("lastview", coords);
-		}
-},
+		var coords = $('#scopeView').get(0).contentWindow.viewCoords;
+		if (coords) {
+			localStorage.setItem("lastview", coords);
+			}
+	},
 
 
 	render() {
