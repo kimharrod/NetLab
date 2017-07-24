@@ -20,7 +20,7 @@ getInitialState: function() {
 
 componentWillMount() {
     // set up Firebase connection & get reference to Histology branch
-	// allows data to be fetched
+	  // allows data to be fetched
     this.firebaseRef = Firebase.database().ref("histology");
     // assign the note's node key to oneNote
     var oneNote = this.props.params.key;
