@@ -138,7 +138,7 @@ componentWillUnmount() {
 	    return ( 
 	   
 	      <div><iframe id="scopeView" src={url} height="400" width="100%"></iframe><br/><br/>
-	        <div id="content">
+	        <div className="content">
 	        	<div className="container">
 			        <ul className="nav nav-tabs">
 			            <li><Link to="/allnotescurrentslide">All Notes</Link></li>
