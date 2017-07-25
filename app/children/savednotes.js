@@ -109,7 +109,7 @@ componentWillUnmount() {
 
 		    return ( 
 		   
-		      	<div>
+		      	<div className="appArea">
 			       
 			        <div className="panel panel-primary">
 				          
@@ -133,5 +133,5 @@ componentWillUnmount() {
 
 		    )
   	}
-  	
+
 })

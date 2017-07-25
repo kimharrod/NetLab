@@ -126,7 +126,7 @@ componentWillUnmount() {
 
     return ( 
    
-	    <div><iframe id="scopeView" src={url} height="400" width="100%"></iframe><br/><br/>
+	    <div className="appArea"><iframe id="scopeView" src={url} height="400" width="100%"></iframe><br/><br/>
 	 
 	        <div className="panel panel-primary">
 	        	<div className="panel-heading" id="slideNote-head">

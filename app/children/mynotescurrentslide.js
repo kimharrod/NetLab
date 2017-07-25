@@ -22,6 +22,8 @@ export default React.createClass({
   		event.preventDefault();
 
   		var viewTarget = event.target.getAttribute('data-url');
+  		localStorage.setItem("structure", event.target.getAttribute('data-struc'));
+        localStorage.setItem("system", event.target.getAttribute('data-sys'));
 
   		$("#scopeView").attr('src', viewTarget);
 
@@ -40,7 +42,6 @@ export default React.createClass({
   		this.firebaseRef.child('/users/' + userID + '/saved/' + noteId).update({displayname: dname});
 
   	},
-
 
 	componentDidMount() {	
 	// set up Firebase connection & get reference to Histology branch
@@ -137,23 +138,24 @@ export default React.createClass({
 
 	    return ( 
 	   
-	      <div><iframe id="scopeView" src={url} height="400" width="100%"></iframe><br/><br/>
-	        <div className="content">
-	        	<div className="container">
-			        <ul className="nav nav-tabs">
-			            <li><Link to="/allnotescurrentslide">All Notes</Link></li>
-			            <li className="active">My Notes</li>
-			        </ul>
-	        
-		        </div>  
+	      <div className="appArea"><iframe id="scopeView" src={url} height="400" width="100%"></iframe><br/><br/>
+
+	       	<div className="panel panel-primary">
+	            <div className="panel-heading" id="slideNote-head">
+	            	<h4>&nbsp;&nbsp;&nbsp;<Link to="/allnotescurrentslide"><span id="inactive">All Notes</span></Link> &nbsp;&nbsp; My Notes</h4>
+	          	</div>
+	            <div className="panel-body">  
 		          
 		          <ul>
 
 		          {this.state.noteset}
 
 		          </ul>
+
+	          	</div>
 	      
         	</div>
+	      
 	      </div>
 
 	    ) // end of return

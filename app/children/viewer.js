@@ -14,7 +14,7 @@ componentWillMount() {
 componentWillUnmount: function () {
 
 	// cross-frame access to variable in the third-party (IIPMOO) viewer
-	var coords = $('#scopeView').get(0).contentWindow.viewCoords;
+	var coords = $('#fullScopeView').get(0).contentWindow.viewCoords;
 
   if (coords) {
 	// save the last slide view to local storage
@@ -28,7 +28,7 @@ pinThis: function () {
   // empty object to store the record
   var pinObj = {};
   // get current coordinates
-  var coords = $('#scopeView').get(0).contentWindow.viewCoords;
+  var coords = $('#fullScopeView').get(0).contentWindow.viewCoords;
   // populate the pin object
   pinObj.url = coords;
     // slice out slide number from full url
@@ -90,7 +90,7 @@ pinThis: function () {
   		// include buttons for adding and showing notes
 	   	return <div>
       <Link to='/createnote'><button id="addNote" className="btn btn-default btn-small"><span className="glyphicon glyphicon-pencil"></span></button></Link>
-      <iframe id="scopeView" src={url} height="600" width="100%"></iframe>
+      <iframe id="fullScopeView" src={url} height="600" width="100%"></iframe>
       <Link to='/allnotescurrentslide'><button id="showNotes" className="btn btn-default btn-small"><span className="glyphicon glyphicon-list-alt"></span></button></Link>
       <button id="pinLoc" onClick={this.pinThis} className="btn btn-default btn-small"><span className="glyphicon glyphicon-map-marker"></span></button>
       </div>

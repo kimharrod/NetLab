@@ -1,6 +1,5 @@
 import React from 'react'
 import Firebase from 'firebase'
-import reactfire from 'reactfire'
 
 export default React.createClass({
 
@@ -83,7 +82,7 @@ export default React.createClass({
 		// get the last viewed location...
 		var url = localStorage.getItem("lastview");
 		// and display it:
-		return <div>
+		return <div className="appArea">
 		<iframe id="scopeView" src={url} height="350" width="100%"></iframe>
 
 

@@ -2,7 +2,6 @@ import React from 'react'
 import Link from 'react-router'
 import Firebase from 'firebase'
 import Firebaseui from 'firebaseui'
-import reactfire from 'reactfire'
 
 
 // Initialize Firebase
@@ -27,6 +26,7 @@ componentDidMount: function () {
     var uiConfig = {
       'signInSuccessUrl': '/#/home',
       'signInOptions': [
+        Firebase.auth.GoogleAuthProvider.PROVIDER_ID,
         Firebase.auth.EmailAuthProvider.PROVIDER_ID
       ],
       'signInFlow': 'popup',
@@ -49,6 +49,16 @@ componentDidMount: function () {
 },
 
   render() {
-    return <div id="firebaseui-auth-container"></div>
+    return <div>
+            <div className="panel panel-primary" id="login-panel">
+              <center>
+              <br/><br/><br/><br/>
+              <strong><span id="loginlogo">netlab</span></strong>
+              <br/>
+              <div id="firebaseui-auth-container"></div>
+              <br/><br/>
+              </center>
+            </div>
+          </div>
   }
 })

@@ -59,22 +59,77 @@ dbapp.get("/api/seed", function(req, res) {
 
 	// make an array of slide objects to seed the database
 	var seedSlides = [
+	
+		{number: '66703', 
+		 category: 'Histology', 
+		 structure: 'Ear Bone (Chinchilla)', 
+		 system: 'Auditory System'},
+
+		{number: '66540', 
+		 category: 'Histology', 
+		 structure: 'Inner Ear (Chinchilla)', 
+		 system: 'Auditory System'},
+
+		{number: '66686', 
+		 category: 'Histology', 
+		 structure: 'Heart Ventricle', 
+		 system: 'Cardiovascular System'},
+
+		{number: '66471', 
+		 category: 'Histology', 
+		 structure: 'Purkinje Fibers', 
+		 system: 'Cardiovascular System'},
+
+		{number: '66419', 
+		 category: 'Histology', 
+		 structure: 'Semilunar Valve', 
+		 system: 'Cardiovascular System'},	
+
+		{number: '67603', 
+		 category: 'Histology', 
+		 structure: 'Vena Cava', 
+		 system: 'Cardiovascular System'},			 		 		 
+
 		{number: '66500', 
 		 category: 'Histology', 
 		 structure: 'Ilium (Dog)', 
 		 system: 'Digestive System'},
+
 		{number: '66578', 
 		 category: 'Histology', 
 		 structure: 'Jejunum (Dog)', 
 		 system: 'Digestive System'},
+
+		{number: '66532', 
+		 category: 'Histology', 
+		 structure: 'Liver (Dog)', 
+		 system: 'Digestive System'},
+
+		{number: '66570', 
+		 category: 'Histology', 
+		 structure: 'Pancreas (Dog)', 
+		 system: 'Digestive System'},
+
+		{number: '66418', 
+		 category: 'Histology', 
+		 structure: 'Adrenal Gland (Monkey)', 
+		 system: 'Endocrine System'},
+
+		{number: '66368', 
+		 category: 'Histology', 
+		 structure: 'Thyroid (Human)', 
+		 system: 'Endocrine System'},
+
 		{number: '66817', 
 		 category: 'Histology', 
 		 structure: 'Simple Columnar Epithelium', 
 		 system: 'Epithelial Tissues'},
+
 		{number: '66821', 
 		 category: 'Histology', 
 		 structure: 'Stratified Squamous Epithelium', 
 		 system: 'Epithelial Tissues'},
+
 		{number: '66398', 
 		 category: 'Histology', 
 		 structure: 'Lymph Node (Human)', 

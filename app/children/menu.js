@@ -67,28 +67,45 @@ componentDidMount: function () {
 	render() {
 
 		var slidelist = this.state.slides;
-	    return ( <div id="menu">
-	        {
-	            slidelist.map((item, index) => {
-	            	
-	            	return (
-	              		<div key={index}>
-	                	<h4 >{item.system}</h4>
-	               		{
-	                		item.list.map((subitem, i) => {
-	                			
-	                			var viewpath = '/viewer/' + subitem.number + '/' + subitem.structure + '/' + subitem.system;
+	    return ( 
+	    	<div id="menu" className="appArea">
+	    		
+	    		<div className="imageDiv">
 
-	                  			return (
-	                     			<ul ><Link to={viewpath}><li id="slideitem" className="lead">&nbsp;{subitem.structure}</li></Link></ul>
-	                  			)
-	                		})
-	               		}
-	              		</div>
-	            	)
-	          	})
-	        }           
+			        {
+			            slidelist.map((item, index) => {
+			            	
+			            	return (
+
+			            		<div className="panel panel-primary">
+							        <div className="panel-heading" id="slideNote-head">
+							            <h4></h4>
+							        </div>
+							        <div className="panel-body">
+
+					              		<div key={index}>
+					                	<h4 >{item.system}</h4>
+					               		{
+					                		item.list.map((subitem, i) => {
+					                			
+					                			var viewpath = '/viewer/' + subitem.number + '/' + subitem.structure + '/' + subitem.system;
+
+					                  			return (
+					                     			<ul ><Link to={viewpath}><li id="slideitem" className="lead">&nbsp;{subitem.structure}</li></Link></ul>
+					                  			)
+					                		})
+					               		}
+					              		</div>
+
+			            			</div>
+
+								</div>
+			            	)
+			          	})
+			        }           
 	          
+	          	</div>
+
 	        </div>
 
 	    ) // end return		      

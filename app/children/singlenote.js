@@ -74,18 +74,23 @@ deleteNote() {
     // render the note information populated with the data from above
     return ( 
    
-      <div><iframe id="scopeView" src={url} height="400" width="100%"></iframe><br/><br/>
-        <div className="content">
-          
-          <p className="lead">
-            Author: {author}<br/>
-            System: {system}<br/>
-            Structure: {structure}<button onClick={this.deleteNote} data-key={key} type="button" className="btn btn-muted btn-primary pull-right">Delete Note</button><br/>
-            <br/>
-            Subject: {subject}<br/>
-            Note: {body}
-          </p>
+      <div className="appArea"><iframe id="scopeView" src={url} height="400" width="100%"></iframe><br/><br/>
+        <div className="panel panel-primary">
+          <div className="panel-heading" id="slideNote-head">
+            <h4><span id="inactive">Note by:&nbsp;</span> {author}</h4>
+          </div>
+          <div className="panel-body">
+            
+              <p className="lead">
+                Author: {author}<br/>
+                System: {system}<br/>
+                Structure: {structure}<button onClick={this.deleteNote} data-key={key} type="button" className="btn btn-muted btn-primary pull-right">Delete Note</button><br/>
+                <br/>
+                Subject: {subject}<br/>
+                Note: {body}
+              </p>
 
+          </div>
         </div>
       </div>
     )

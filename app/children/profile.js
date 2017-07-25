@@ -99,15 +99,29 @@ export default React.createClass({
 
 			return (
 
-				<div className="content">
-				<h2>{this.state.userName}<br/>
-					{this.state.userEmail}</h2>
-				<h3>Notes</h3>
-					<ul>
+				<div className="appArea">
 
-						{this.state.noteset}
+					<div className="panel panel-primary">
+			            
+						<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{this.state.userName}<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{this.state.userEmail}</h2>
 
-					</ul>
+			          	<div className="panel-heading" id="slideNote-head">
+			            <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Notes:</h4>
+			            </div>
+		          		
+							<div className="panel-body">
+
+								<ul>
+
+									{this.state.noteset}
+
+								</ul>
+
+							</div>	
+					
+					</div>
+
 				</div>
 
 			)

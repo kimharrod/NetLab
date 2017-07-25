@@ -67,8 +67,9 @@ componentDidMount() {
 
     return ( 
 
-        <div className="panel panel-primary">
-	          
+		<div className="appArea>"
+	        <div className="panel panel-primary">
+		          
 	          <div className="panel-heading" id="slideNote-head">
 	            <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Location Pins</h4>
 	          </div>
@@ -81,7 +82,9 @@ componentDidMount() {
 
 	            </ul>
 
-	          </div>
+	           </div>
+
+		    </div>
 	    </div>
 
     )
