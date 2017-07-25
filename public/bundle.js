@@ -54,53 +54,53 @@
 
 	var _reactRouter = __webpack_require__(159);
 
-	var _login = __webpack_require__(230);
+	var _login = __webpack_require__(222);
 
 	var _login2 = _interopRequireDefault(_login);
 
-	var _home = __webpack_require__(222);
+	var _home = __webpack_require__(282);
 
 	var _home2 = _interopRequireDefault(_home);
 
-	var _menu = __webpack_require__(223);
+	var _menu = __webpack_require__(283);
 
 	var _menu2 = _interopRequireDefault(_menu);
 
-	var _viewer = __webpack_require__(224);
+	var _viewer = __webpack_require__(285);
 
 	var _viewer2 = _interopRequireDefault(_viewer);
 
-	var _singlenote = __webpack_require__(299);
+	var _singlenote = __webpack_require__(286);
 
 	var _singlenote2 = _interopRequireDefault(_singlenote);
 
-	var _notes = __webpack_require__(296);
+	var _mynotesall = __webpack_require__(287);
 
-	var _notes2 = _interopRequireDefault(_notes);
+	var _mynotesall2 = _interopRequireDefault(_mynotesall);
 
-	var _savednotes = __webpack_require__(297);
+	var _savednotes = __webpack_require__(288);
 
 	var _savednotes2 = _interopRequireDefault(_savednotes);
 
-	var _createnote = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./children/createnote\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _createnote = __webpack_require__(289);
 
 	var _createnote2 = _interopRequireDefault(_createnote);
 
-	var _pins = __webpack_require__(292);
+	var _pins = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./children/pins\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	var _pins2 = _interopRequireDefault(_pins);
 
-	var _profile = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./children/profile\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _profile = __webpack_require__(291);
 
 	var _profile2 = _interopRequireDefault(_profile);
 
-	var _allnotes = __webpack_require__(293);
+	var _allnotescurrentslide = __webpack_require__(292);
 
-	var _allnotes2 = _interopRequireDefault(_allnotes);
+	var _allnotescurrentslide2 = _interopRequireDefault(_allnotescurrentslide);
 
-	var _mynotes = __webpack_require__(294);
+	var _mynotescurrentslide = __webpack_require__(293);
 
-	var _mynotes2 = _interopRequireDefault(_mynotes);
+	var _mynotescurrentslide2 = _interopRequireDefault(_mynotescurrentslide);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -116,15 +116,16 @@
 			_reactRouter.Route,
 			{ path: '/home', component: _home2.default },
 			_react2.default.createElement(_reactRouter.IndexRoute, { component: _menu2.default }),
-			_react2.default.createElement(_reactRouter.Route, { path: '/singlenote', component: _singlenote2.default }),
-			_react2.default.createElement(_reactRouter.Route, { path: '/notes', component: _notes2.default }),
+			_react2.default.createElement(_reactRouter.Route, { path: '/mynotesall', component: _mynotesall2.default }),
 			_react2.default.createElement(_reactRouter.Route, { path: '/savednotes', component: _savednotes2.default }),
 			_react2.default.createElement(_reactRouter.Route, { path: '/createnote', component: Newnote }),
 			_react2.default.createElement(_reactRouter.Route, { path: '/pins', component: _pins2.default }),
 			_react2.default.createElement(_reactRouter.Route, { path: '/profile', component: _profile2.default }),
-			_react2.default.createElement(_reactRouter.Route, { path: '/allnotes', component: _allnotes2.default }),
-			_react2.default.createElement(_reactRouter.Route, { path: '/mynotes', component: _mynotes2.default }),
-			_react2.default.createElement(_reactRouter.Route, { path: '/viewer/:slideNum/:slideStruc/:slideSys', component: _viewer2.default })
+			_react2.default.createElement(_reactRouter.Route, { path: '/allnotescurrentslide', component: _allnotescurrentslide2.default }),
+			_react2.default.createElement(_reactRouter.Route, { path: '/mynotescurrentslide', component: _mynotescurrentslide2.default }),
+			_react2.default.createElement(_reactRouter.Route, { path: '/viewer/:slideNum/:slideStruc/:slideSys', component: _viewer2.default }),
+			_react2.default.createElement(_reactRouter.Route, { path: '/pin/:num/:loc/:slideStruc/:slideSys', component: _viewer2.default }),
+			_react2.default.createElement(_reactRouter.Route, { path: '/singlenote/:key/:loc', component: _singlenote2.default })
 		)
 	), document.getElementById('app')); // Import React dependencies
 
@@ -25485,274 +25486,6 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRouter = __webpack_require__(159);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	// Create and render the parent component (called "Home")
-	// Import react dependencies
-	exports.default = _react2.default.createClass({
-		displayName: 'home',
-
-
-		// Set up the navbar menu
-		render: function render() {
-			return _react2.default.createElement(
-				'div',
-				null,
-				_react2.default.createElement(
-					'center',
-					null,
-					_react2.default.createElement(
-						'h3',
-						null,
-						'NetLab Histology \xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0',
-						_react2.default.createElement(
-							_reactRouter.Link,
-							{ to: '/menu' },
-							'Menu '
-						),
-						'| ',
-						_react2.default.createElement(
-							_reactRouter.Link,
-							{ to: '/notes' },
-							'Notes '
-						),
-						'| ',
-						_react2.default.createElement(
-							_reactRouter.Link,
-							{ to: '/viewer/direct/struc/sys' },
-							'Scope '
-						),
-						'| ',
-						_react2.default.createElement(
-							_reactRouter.Link,
-							{ to: '/pins' },
-							'Pins '
-						),
-						'| ',
-						_react2.default.createElement(
-							_reactRouter.Link,
-							{ to: '/profile' },
-							'Profile '
-						)
-					)
-				),
-				_react2.default.createElement('hr', null),
-				this.props.children
-			);
-		}
-	});
-
-/***/ }),
-/* 223 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRouter = __webpack_require__(159);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var helpers = __webpack_require__(229);
-
-	exports.default = _react2.default.createClass({
-		displayName: "menu",
-
-
-		getInitialState: function getInitialState() {
-			return {
-				slides: []
-			};
-		},
-
-		// Slide menu
-		componentDidMount: function componentDidMount() {
-
-			// call getSlides function to retrieve all slides from MongoDB
-			// this completes before menu is displayed
-			helpers.getSlides().then(function (data) {
-
-				// assemble the menu for display and applying hyperlinks to each menu item
-				var slideSet = Object.keys(data).map(function (s) {
-					var viewpath = '/viewer/' + data[s].number + '/' + data[s].structure + '/' + data[s].system;
-
-					return _react2.default.createElement(
-						"li",
-						{ key: data[s].number },
-						_react2.default.createElement(
-							_reactRouter.Link,
-							{ to: viewpath },
-							"System: ",
-							data[s].system,
-							_react2.default.createElement("br", null),
-							"Structure: ",
-							data[s].structure,
-							" "
-						),
-						_react2.default.createElement("br", null)
-					);
-				});
-
-				this.setState({ slides: slideSet });
-			}.bind(this));
-		},
-
-		render: function render() {
-
-			return _react2.default.createElement(
-				"div",
-				null,
-				_react2.default.createElement(
-					"ul",
-					null,
-					this.state.slides
-				)
-			);
-		}
-	});
-
-/***/ }),
-/* 224 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.default = _react2.default.createClass({
-	  displayName: 'viewer',
-
-
-	  // function to save the coordinates of last slide view when exiting viewer component
-	  componentWillUnmount: function componentWillUnmount() {
-
-	    console.log("unmount slideNum: " + this.props.params.slideNum);
-	    // cross-frame access to variable in the third-party (IIPMOO) viewer
-	    var coords = $('#scopeView').get(0).contentWindow.viewCoords;
-	    console.log("coords: " + coords);
-	    // save the last slide view to local storage
-	    localStorage.setItem("lastview", coords);
-	  },
-
-	  // assemble and render the iframe for the viewer component
-	  render: function render() {
-
-	    // make slide number available to viewer component
-	    var num = this.props.params.slideNum;
-	    console.log("render slideNum: " + num);
-
-	    // point to the image url on the slide server
-	    var url = 'http://netlab.fios.vc/iipn/index.html?image=' + num + '.tif';
-
-	    // detect direct navigation from viewer link in the navbar
-	    if (num === "direct") {
-
-	      // assign url to reflect last slide view
-	      url = localStorage.getItem("lastview");
-	    }
-
-	    // or display the slide selected from menu
-	    // include buttons for adding and showing notes
-	    return _react2.default.createElement(
-	      'div',
-	      null,
-	      _react2.default.createElement(
-	        Link,
-	        { to: '/createnote' },
-	        _react2.default.createElement(
-	          'button',
-	          { id: 'addNote', className: 'btn btn-default btn-small' },
-	          _react2.default.createElement('span', { className: 'glyphicon glyphicon-pencil' })
-	        )
-	      ),
-	      _react2.default.createElement('iframe', { id: 'scopeView', src: url, height: '600', width: '100%' }),
-	      _react2.default.createElement(
-	        Link,
-	        { to: '/allnotes' },
-	        _react2.default.createElement(
-	          'button',
-	          { id: 'showNotes', className: 'btn btn-default btn-small' },
-	          _react2.default.createElement('span', { className: 'glyphicon glyphicon-list-alt' })
-	        )
-	      )
-	    );
-	  }
-	});
-
-/***/ }),
-/* 225 */,
-/* 226 */,
-/* 227 */,
-/* 228 */,
-/* 229 */
-/***/ (function(module, exports) {
-
-	'use strict';
-
-	// Helper function to fetch slides from MongoDB
-	var helpers = {
-
-		getSlides: function getSlides() {
-
-			return $.ajax({
-				url: '/api/slides/',
-				type: 'get'
-			}).done(function (data) {
-
-				var slides = [];
-
-				Object.keys(data).map(function (s) {
-					slides.push({
-						number: data[s].number,
-						category: data[s].category,
-						system: data[s].system,
-						structure: data[s].structure,
-						id: data[s]._id
-
-					});
-				});
-
-				// return the slide array back to the calling function
-				return slides;
-			}); // end .done (ajax callback)
-		} // end getSlides
-
-	}; // end helpers
-
-	// Export the helpers object
-	module.exports = helpers;
-
-/***/ }),
-/* 230 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 
@@ -25764,17 +25497,13 @@
 
 	var _reactRouter2 = _interopRequireDefault(_reactRouter);
 
-	var _firebase = __webpack_require__(231);
+	var _firebase = __webpack_require__(223);
 
 	var _firebase2 = _interopRequireDefault(_firebase);
 
-	var _firebaseui = __webpack_require__(287);
+	var _firebaseui = __webpack_require__(279);
 
 	var _firebaseui2 = _interopRequireDefault(_firebaseui);
-
-	var _reactfire = __webpack_require__(290);
-
-	var _reactfire2 = _interopRequireDefault(_reactfire);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25801,7 +25530,7 @@
 	    var ui = new _firebaseui2.default.auth.AuthUI(_firebase2.default.auth());
 	    var uiConfig = {
 	      'signInSuccessUrl': '/#/home',
-	      'signInOptions': [_firebase2.default.auth.EmailAuthProvider.PROVIDER_ID],
+	      'signInOptions': [_firebase2.default.auth.GoogleAuthProvider.PROVIDER_ID, _firebase2.default.auth.EmailAuthProvider.PROVIDER_ID],
 	      'signInFlow': 'popup',
 	      callbacks: {
 	        // function that runs upon successful authentication
@@ -25821,12 +25550,48 @@
 	  },
 
 	  render: function render() {
-	    return _react2.default.createElement('div', { id: 'firebaseui-auth-container' });
+	    return _react2.default.createElement(
+	      'div',
+	      null,
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'panel panel-primary', id: 'login-panel' },
+	        '\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0',
+	        _react2.default.createElement(
+	          'center',
+	          null,
+	          '\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0',
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('br', null),
+	          '\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0',
+	          _react2.default.createElement(
+	            'strong',
+	            null,
+	            _react2.default.createElement(
+	              'span',
+	              { id: 'loginlogo' },
+	              'netlab'
+	            )
+	          ),
+	          '\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0',
+	          _react2.default.createElement('br', null),
+	          '\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0',
+	          _react2.default.createElement('div', { id: 'firebaseui-auth-container' }),
+	          '\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0',
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('br', null),
+	          '\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0'
+	        ),
+	        '\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0'
+	      )
+	    );
 	  }
 	});
 
 /***/ }),
-/* 231 */
+/* 223 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*! @license Firebase v4.1.3
@@ -25839,22 +25604,22 @@
 	    value: true
 	});
 
-	var _app = __webpack_require__(232);
+	var _app = __webpack_require__(224);
 
 	var _app2 = _interopRequireDefault(_app);
 
-	__webpack_require__(241);
+	__webpack_require__(233);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	// Import instance of FirebaseApp from ./app
 	var Storage, XMLHttpRequest;
 
-	__webpack_require__(242);
-	__webpack_require__(243);
+	__webpack_require__(234);
+	__webpack_require__(235);
 	var AsyncStorage;
 
-	__webpack_require__(276);
+	__webpack_require__(268);
 	// Export the single instance of firebase
 	exports.default = _app2.default;
 	module.exports = exports['default'];
@@ -25862,7 +25627,7 @@
 
 
 /***/ }),
-/* 232 */
+/* 224 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*! @license Firebase v4.1.3
@@ -25875,7 +25640,7 @@
 	  value: true
 	});
 
-	var _firebase_app = __webpack_require__(233);
+	var _firebase_app = __webpack_require__(225);
 
 	// Export a single instance of firebase app
 	var firebase = (0, _firebase_app.createFirebaseNamespace)(); /**
@@ -25900,7 +25665,7 @@
 
 
 /***/ }),
-/* 233 */
+/* 225 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*! @license Firebase v4.1.3
@@ -25932,13 +25697,13 @@
 
 	exports.createFirebaseNamespace = createFirebaseNamespace;
 
-	var _subscribe = __webpack_require__(234);
+	var _subscribe = __webpack_require__(226);
 
-	var _errors = __webpack_require__(239);
+	var _errors = __webpack_require__(231);
 
-	var _shared_promise = __webpack_require__(235);
+	var _shared_promise = __webpack_require__(227);
 
-	var _deep_copy = __webpack_require__(240);
+	var _deep_copy = __webpack_require__(232);
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -26305,7 +26070,7 @@
 
 
 /***/ }),
-/* 234 */
+/* 226 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*! @license Firebase v4.1.3
@@ -26325,7 +26090,7 @@
 	exports.createSubscribe = createSubscribe;
 	exports.async = async;
 
-	var _shared_promise = __webpack_require__(235);
+	var _shared_promise = __webpack_require__(227);
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -26589,7 +26354,7 @@
 
 
 /***/ }),
-/* 235 */
+/* 227 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/*! @license Firebase v4.1.3
@@ -26628,7 +26393,7 @@
 	        throw new Error('polyfill failed because global object is unavailable in this environment');
 	    }
 	}
-	var PromiseImpl = scope.Promise || __webpack_require__(236);
+	var PromiseImpl = scope.Promise || __webpack_require__(228);
 	var local = exports.local = {
 	    Promise: PromiseImpl,
 	    GoogPromise: PromiseImpl
@@ -26638,7 +26403,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ }),
-/* 236 */
+/* 228 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(setImmediate) {(function (root) {
@@ -26875,10 +26640,10 @@
 
 	})(this);
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(237).setImmediate))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(229).setImmediate))
 
 /***/ }),
-/* 237 */
+/* 229 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var apply = Function.prototype.apply;
@@ -26931,13 +26696,13 @@
 	};
 
 	// setimmediate attaches itself to the global object
-	__webpack_require__(238);
+	__webpack_require__(230);
 	exports.setImmediate = setImmediate;
 	exports.clearImmediate = clearImmediate;
 
 
 /***/ }),
-/* 238 */
+/* 230 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -27130,7 +26895,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(4)))
 
 /***/ }),
-/* 239 */
+/* 231 */
 /***/ (function(module, exports) {
 
 	/*! @license Firebase v4.1.3
@@ -27236,7 +27001,7 @@
 
 
 /***/ }),
-/* 240 */
+/* 232 */
 /***/ (function(module, exports) {
 
 	/*! @license Firebase v4.1.3
@@ -27337,14 +27102,14 @@
 
 
 /***/ }),
-/* 241 */
+/* 233 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/*! @license Firebase v4.1.3
 	Build: rev-1234895
 	Terms: https://firebase.google.com/terms/ */
 
-	var firebase = __webpack_require__(232);
+	var firebase = __webpack_require__(224);
 	(function(){(function(){var h,aa=aa||{},k=this,m=function(a){return void 0!==a},p=function(a){return"string"==typeof a},ba=function(a){return"boolean"==typeof a},ca=function(a){return"number"==typeof a},da=function(){},ea=function(a){var b=typeof a;if("object"==b)if(a){if(a instanceof Array)return"array";if(a instanceof Object)return b;var c=Object.prototype.toString.call(a);if("[object Window]"==c)return"object";if("[object Array]"==c||"number"==typeof a.length&&"undefined"!=typeof a.splice&&"undefined"!=typeof a.propertyIsEnumerable&&
 	!a.propertyIsEnumerable("splice"))return"array";if("[object Function]"==c||"undefined"!=typeof a.call&&"undefined"!=typeof a.propertyIsEnumerable&&!a.propertyIsEnumerable("call"))return"function"}else return"null";else if("function"==b&&"undefined"==typeof a.call)return"object";return b},fa=function(a){return null===a},ga=function(a){return"array"==ea(a)},ha=function(a){var b=ea(a);return"array"==b||"object"==b&&"number"==typeof a.length},q=function(a){return"function"==ea(a)},r=function(a){var b=
 	typeof a;return"object"==b&&null!=a||"function"==b},ia=function(a,b,c){return a.call.apply(a.bind,arguments)},ja=function(a,b,c){if(!a)throw Error();if(2<arguments.length){var d=Array.prototype.slice.call(arguments,2);return function(){var c=Array.prototype.slice.call(arguments);Array.prototype.unshift.apply(c,d);return a.apply(b,c)}}return function(){return a.apply(b,arguments)}},t=function(a,b,c){t=Function.prototype.bind&&-1!=Function.prototype.bind.toString().indexOf("native code")?ia:ja;return t.apply(null,
@@ -27621,7 +27386,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ }),
-/* 242 */
+/* 234 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*! @license Firebase v4.1.3
@@ -27652,7 +27417,7 @@
 	THE SOFTWARE. */
 
 	(function() {
-	            var firebase = __webpack_require__(232);
+	            var firebase = __webpack_require__(224);
 	            var g,aa=this;function n(a){return void 0!==a}function ba(){}function ca(a){a.Vb=function(){return a.Ye?a.Ye:a.Ye=new a}}
 	function da(a){var b=typeof a;if("object"==b)if(a){if(a instanceof Array)return"array";if(a instanceof Object)return b;var c=Object.prototype.toString.call(a);if("[object Window]"==c)return"object";if("[object Array]"==c||"number"==typeof a.length&&"undefined"!=typeof a.splice&&"undefined"!=typeof a.propertyIsEnumerable&&!a.propertyIsEnumerable("splice"))return"array";if("[object Function]"==c||"undefined"!=typeof a.call&&"undefined"!=typeof a.propertyIsEnumerable&&!a.propertyIsEnumerable("call"))return"function"}else return"null";
 	else if("function"==b&&"undefined"==typeof a.call)return"object";return b}function ea(a){return"array"==da(a)}function fa(a){var b=da(a);return"array"==b||"object"==b&&"number"==typeof a.length}function p(a){return"string"==typeof a}function ga(a){return"number"==typeof a}function ha(a){return"function"==da(a)}function ia(a){var b=typeof a;return"object"==b&&null!=a||"function"==b}function ja(a,b,c){return a.call.apply(a.bind,arguments)}
@@ -27892,7 +27657,7 @@
 
 
 /***/ }),
-/* 243 */
+/* 235 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*! @license Firebase v4.1.3
@@ -27906,17 +27671,17 @@
 	});
 	exports.registerStorage = registerStorage;
 
-	var _string = __webpack_require__(244);
+	var _string = __webpack_require__(236);
 
-	var _taskenums = __webpack_require__(247);
+	var _taskenums = __webpack_require__(239);
 
-	var _xhriopool = __webpack_require__(248);
+	var _xhriopool = __webpack_require__(240);
 
-	var _reference = __webpack_require__(254);
+	var _reference = __webpack_require__(246);
 
-	var _service = __webpack_require__(270);
+	var _service = __webpack_require__(262);
 
-	var _app = __webpack_require__(232);
+	var _app = __webpack_require__(224);
 
 	var _app2 = _interopRequireDefault(_app);
 
@@ -27961,7 +27726,7 @@
 
 
 /***/ }),
-/* 244 */
+/* 236 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*! @license Firebase v4.1.3
@@ -27982,7 +27747,7 @@
 	exports.dataURLBytes_ = dataURLBytes_;
 	exports.dataURLContentType_ = dataURLContentType_;
 
-	var _error = __webpack_require__(245);
+	var _error = __webpack_require__(237);
 
 	var errorsExports = _interopRequireWildcard(_error);
 
@@ -28170,7 +27935,7 @@
 
 
 /***/ }),
-/* 245 */
+/* 237 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*! @license Firebase v4.1.3
@@ -28226,7 +27991,7 @@
 	exports.invalidFormat = invalidFormat;
 	exports.internalError = internalError;
 
-	var _constants = __webpack_require__(246);
+	var _constants = __webpack_require__(238);
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -28408,7 +28173,7 @@
 
 
 /***/ }),
-/* 246 */
+/* 238 */
 /***/ (function(module, exports) {
 
 	/*! @license Firebase v4.1.3
@@ -28494,7 +28259,7 @@
 
 
 /***/ }),
-/* 247 */
+/* 239 */
 /***/ (function(module, exports) {
 
 	/*! @license Firebase v4.1.3
@@ -28570,7 +28335,7 @@
 
 
 /***/ }),
-/* 248 */
+/* 240 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*! @license Firebase v4.1.3
@@ -28601,7 +28366,7 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     */
 
 
-	var _xhrio_network = __webpack_require__(249);
+	var _xhrio_network = __webpack_require__(241);
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -28626,7 +28391,7 @@
 
 
 /***/ }),
-/* 249 */
+/* 241 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*! @license Firebase v4.1.3
@@ -28657,23 +28422,23 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     */
 
 
-	var _error = __webpack_require__(245);
+	var _error = __webpack_require__(237);
 
 	var errorsExports = _interopRequireWildcard(_error);
 
-	var _object = __webpack_require__(250);
+	var _object = __webpack_require__(242);
 
 	var object = _interopRequireWildcard(_object);
 
-	var _promise_external = __webpack_require__(251);
+	var _promise_external = __webpack_require__(243);
 
 	var promiseimpl = _interopRequireWildcard(_promise_external);
 
-	var _type = __webpack_require__(252);
+	var _type = __webpack_require__(244);
 
 	var type = _interopRequireWildcard(_type);
 
-	var _xhrio = __webpack_require__(253);
+	var _xhrio = __webpack_require__(245);
 
 	var XhrIoExports = _interopRequireWildcard(_xhrio);
 
@@ -28824,7 +28589,7 @@
 
 
 /***/ }),
-/* 250 */
+/* 242 */
 /***/ (function(module, exports) {
 
 	/*! @license Firebase v4.1.3
@@ -28895,7 +28660,7 @@
 
 
 /***/ }),
-/* 251 */
+/* 243 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*! @license Firebase v4.1.3
@@ -28911,7 +28676,7 @@
 	exports.resolve = resolve;
 	exports.reject = reject;
 
-	var _shared_promise = __webpack_require__(235);
+	var _shared_promise = __webpack_require__(227);
 
 	function make(resolver) {
 	  return new _shared_promise.local.Promise(resolver);
@@ -28953,7 +28718,7 @@
 
 
 /***/ }),
-/* 252 */
+/* 244 */
 /***/ (function(module, exports) {
 
 	/*! @license Firebase v4.1.3
@@ -29044,7 +28809,7 @@
 
 
 /***/ }),
-/* 253 */
+/* 245 */
 /***/ (function(module, exports) {
 
 	/*! @license Firebase v4.1.3
@@ -29084,7 +28849,7 @@
 
 
 /***/ }),
-/* 254 */
+/* 246 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*! @license Firebase v4.1.3
@@ -29118,43 +28883,43 @@
 	 */
 
 
-	var _args = __webpack_require__(255);
+	var _args = __webpack_require__(247);
 
 	var args = _interopRequireWildcard(_args);
 
-	var _blob = __webpack_require__(261);
+	var _blob = __webpack_require__(253);
 
-	var _error = __webpack_require__(245);
+	var _error = __webpack_require__(237);
 
 	var errorsExports = _interopRequireWildcard(_error);
 
-	var _location = __webpack_require__(258);
+	var _location = __webpack_require__(250);
 
-	var _metadata = __webpack_require__(256);
+	var _metadata = __webpack_require__(248);
 
 	var metadata = _interopRequireWildcard(_metadata);
 
-	var _object = __webpack_require__(250);
+	var _object = __webpack_require__(242);
 
 	var object = _interopRequireWildcard(_object);
 
-	var _path = __webpack_require__(259);
+	var _path = __webpack_require__(251);
 
 	var path = _interopRequireWildcard(_path);
 
-	var _requests = __webpack_require__(263);
+	var _requests = __webpack_require__(255);
 
 	var requests = _interopRequireWildcard(_requests);
 
-	var _string = __webpack_require__(244);
+	var _string = __webpack_require__(236);
 
 	var fbsString = _interopRequireWildcard(_string);
 
-	var _type = __webpack_require__(252);
+	var _type = __webpack_require__(244);
 
 	var type = _interopRequireWildcard(_type);
 
-	var _task = __webpack_require__(266);
+	var _task = __webpack_require__(258);
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -29392,7 +29157,7 @@
 
 
 /***/ }),
-/* 255 */
+/* 247 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*! @license Firebase v4.1.3
@@ -29414,15 +29179,15 @@
 	exports.looseObjectSpec = looseObjectSpec;
 	exports.nullFunctionSpec = nullFunctionSpec;
 
-	var _error = __webpack_require__(245);
+	var _error = __webpack_require__(237);
 
 	var errorsExports = _interopRequireWildcard(_error);
 
-	var _metadata = __webpack_require__(256);
+	var _metadata = __webpack_require__(248);
 
 	var MetadataUtils = _interopRequireWildcard(_metadata);
 
-	var _type = __webpack_require__(252);
+	var _type = __webpack_require__(244);
 
 	var type = _interopRequireWildcard(_type);
 
@@ -29555,7 +29320,7 @@
 
 
 /***/ }),
-/* 256 */
+/* 248 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*! @license Firebase v4.1.3
@@ -29577,21 +29342,21 @@
 	exports.toResourceString = toResourceString;
 	exports.metadataValidator = metadataValidator;
 
-	var _json = __webpack_require__(257);
+	var _json = __webpack_require__(249);
 
 	var json = _interopRequireWildcard(_json);
 
-	var _location = __webpack_require__(258);
+	var _location = __webpack_require__(250);
 
-	var _path = __webpack_require__(259);
+	var _path = __webpack_require__(251);
 
 	var path = _interopRequireWildcard(_path);
 
-	var _type = __webpack_require__(252);
+	var _type = __webpack_require__(244);
 
 	var type = _interopRequireWildcard(_type);
 
-	var _url = __webpack_require__(260);
+	var _url = __webpack_require__(252);
 
 	var UrlUtils = _interopRequireWildcard(_url);
 
@@ -29764,7 +29529,7 @@
 
 
 /***/ }),
-/* 257 */
+/* 249 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*! @license Firebase v4.1.3
@@ -29778,7 +29543,7 @@
 	});
 	exports.jsonObjectOrNull = jsonObjectOrNull;
 
-	var _type = __webpack_require__(252);
+	var _type = __webpack_require__(244);
 
 	var type = _interopRequireWildcard(_type);
 
@@ -29819,7 +29584,7 @@
 
 
 /***/ }),
-/* 258 */
+/* 250 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*! @license Firebase v4.1.3
@@ -29854,7 +29619,7 @@
 	 */
 
 
-	var _error = __webpack_require__(245);
+	var _error = __webpack_require__(237);
 
 	var errorsExports = _interopRequireWildcard(_error);
 
@@ -29951,7 +29716,7 @@
 
 
 /***/ }),
-/* 259 */
+/* 251 */
 /***/ (function(module, exports) {
 
 	/*! @license Firebase v4.1.3
@@ -30040,7 +29805,7 @@
 
 
 /***/ }),
-/* 260 */
+/* 252 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*! @license Firebase v4.1.3
@@ -30057,11 +29822,11 @@
 	exports.makeUploadUrl = makeUploadUrl;
 	exports.makeQueryString = makeQueryString;
 
-	var _constants = __webpack_require__(246);
+	var _constants = __webpack_require__(238);
 
 	var constants = _interopRequireWildcard(_constants);
 
-	var _object = __webpack_require__(250);
+	var _object = __webpack_require__(242);
 
 	var object = _interopRequireWildcard(_object);
 
@@ -30109,7 +29874,7 @@
 
 
 /***/ }),
-/* 261 */
+/* 253 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*! @license Firebase v4.1.3
@@ -30145,15 +29910,15 @@
 	 */
 
 
-	var _fs = __webpack_require__(262);
+	var _fs = __webpack_require__(254);
 
 	var fs = _interopRequireWildcard(_fs);
 
-	var _string = __webpack_require__(244);
+	var _string = __webpack_require__(236);
 
 	var string = _interopRequireWildcard(_string);
 
-	var _type = __webpack_require__(252);
+	var _type = __webpack_require__(244);
 
 	var type = _interopRequireWildcard(_type);
 
@@ -30274,7 +30039,7 @@
 
 
 /***/ }),
-/* 262 */
+/* 254 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*! @license Firebase v4.1.3
@@ -30289,7 +30054,7 @@
 	exports.getBlob = getBlob;
 	exports.sliceBlob = sliceBlob;
 
-	var _type = __webpack_require__(252);
+	var _type = __webpack_require__(244);
 
 	var type = _interopRequireWildcard(_type);
 
@@ -30354,7 +30119,7 @@
 
 
 /***/ }),
-/* 263 */
+/* 255 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*! @license Firebase v4.1.3
@@ -30382,31 +30147,31 @@
 	exports.getResumableUploadStatus = getResumableUploadStatus;
 	exports.continueResumableUpload = continueResumableUpload;
 
-	var _array = __webpack_require__(264);
+	var _array = __webpack_require__(256);
 
 	var array = _interopRequireWildcard(_array);
 
-	var _blob = __webpack_require__(261);
+	var _blob = __webpack_require__(253);
 
-	var _error = __webpack_require__(245);
+	var _error = __webpack_require__(237);
 
 	var errorsExports = _interopRequireWildcard(_error);
 
-	var _metadata = __webpack_require__(256);
+	var _metadata = __webpack_require__(248);
 
 	var MetadataUtils = _interopRequireWildcard(_metadata);
 
-	var _object = __webpack_require__(250);
+	var _object = __webpack_require__(242);
 
 	var object = _interopRequireWildcard(_object);
 
-	var _requestinfo = __webpack_require__(265);
+	var _requestinfo = __webpack_require__(257);
 
-	var _type = __webpack_require__(252);
+	var _type = __webpack_require__(244);
 
 	var type = _interopRequireWildcard(_type);
 
-	var _url = __webpack_require__(260);
+	var _url = __webpack_require__(252);
 
 	var UrlUtils = _interopRequireWildcard(_url);
 
@@ -30707,7 +30472,7 @@
 
 
 /***/ }),
-/* 264 */
+/* 256 */
 /***/ (function(module, exports) {
 
 	/*! @license Firebase v4.1.3
@@ -30780,7 +30545,7 @@
 
 
 /***/ }),
-/* 265 */
+/* 257 */
 /***/ (function(module, exports) {
 
 	/*! @license Firebase v4.1.3
@@ -30826,7 +30591,7 @@
 
 
 /***/ }),
-/* 266 */
+/* 258 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*! @license Firebase v4.1.3
@@ -30860,37 +30625,37 @@
 	 */
 
 
-	var _taskenums = __webpack_require__(247);
+	var _taskenums = __webpack_require__(239);
 
 	var fbsTaskEnums = _interopRequireWildcard(_taskenums);
 
-	var _observer = __webpack_require__(267);
+	var _observer = __webpack_require__(259);
 
-	var _tasksnapshot = __webpack_require__(268);
+	var _tasksnapshot = __webpack_require__(260);
 
-	var _args = __webpack_require__(255);
+	var _args = __webpack_require__(247);
 
 	var fbsArgs = _interopRequireWildcard(_args);
 
-	var _array = __webpack_require__(264);
+	var _array = __webpack_require__(256);
 
 	var fbsArray = _interopRequireWildcard(_array);
 
-	var _async = __webpack_require__(269);
+	var _async = __webpack_require__(261);
 
-	var _error = __webpack_require__(245);
+	var _error = __webpack_require__(237);
 
 	var errors = _interopRequireWildcard(_error);
 
-	var _promise_external = __webpack_require__(251);
+	var _promise_external = __webpack_require__(243);
 
 	var fbsPromiseimpl = _interopRequireWildcard(_promise_external);
 
-	var _requests = __webpack_require__(263);
+	var _requests = __webpack_require__(255);
 
 	var fbsRequests = _interopRequireWildcard(_requests);
 
-	var _type = __webpack_require__(252);
+	var _type = __webpack_require__(244);
 
 	var typeUtils = _interopRequireWildcard(_type);
 
@@ -31468,7 +31233,7 @@
 
 
 /***/ }),
-/* 267 */
+/* 259 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*! @license Firebase v4.1.3
@@ -31482,7 +31247,7 @@
 	});
 	exports.Observer = undefined;
 
-	var _type = __webpack_require__(252);
+	var _type = __webpack_require__(244);
 
 	var type = _interopRequireWildcard(_type);
 
@@ -31527,7 +31292,7 @@
 
 
 /***/ }),
-/* 268 */
+/* 260 */
 /***/ (function(module, exports) {
 
 	/*! @license Firebase v4.1.3
@@ -31578,7 +31343,7 @@
 
 
 /***/ }),
-/* 269 */
+/* 261 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*! @license Firebase v4.1.3
@@ -31592,7 +31357,7 @@
 	});
 	exports.async = async;
 
-	var _promise_external = __webpack_require__(251);
+	var _promise_external = __webpack_require__(243);
 
 	var promiseimpl = _interopRequireWildcard(_promise_external);
 
@@ -31635,7 +31400,7 @@
 
 
 /***/ }),
-/* 270 */
+/* 262 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*! @license Firebase v4.1.3
@@ -31666,23 +31431,23 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     */
 
 
-	var _args = __webpack_require__(255);
+	var _args = __webpack_require__(247);
 
 	var args = _interopRequireWildcard(_args);
 
-	var _authwrapper = __webpack_require__(271);
+	var _authwrapper = __webpack_require__(263);
 
-	var _location = __webpack_require__(258);
+	var _location = __webpack_require__(250);
 
-	var _promise_external = __webpack_require__(251);
+	var _promise_external = __webpack_require__(243);
 
 	var fbsPromiseImpl = _interopRequireWildcard(_promise_external);
 
-	var _request = __webpack_require__(274);
+	var _request = __webpack_require__(266);
 
 	var RequestExports = _interopRequireWildcard(_request);
 
-	var _reference = __webpack_require__(254);
+	var _reference = __webpack_require__(246);
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -31825,7 +31590,7 @@
 
 
 /***/ }),
-/* 271 */
+/* 263 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*! @license Firebase v4.1.3
@@ -31841,25 +31606,25 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _constants = __webpack_require__(246);
+	var _constants = __webpack_require__(238);
 
 	var constants = _interopRequireWildcard(_constants);
 
-	var _error2 = __webpack_require__(245);
+	var _error2 = __webpack_require__(237);
 
 	var errorsExports = _interopRequireWildcard(_error2);
 
-	var _failrequest = __webpack_require__(272);
+	var _failrequest = __webpack_require__(264);
 
-	var _location = __webpack_require__(258);
+	var _location = __webpack_require__(250);
 
-	var _promise_external = __webpack_require__(251);
+	var _promise_external = __webpack_require__(243);
 
 	var promiseimpl = _interopRequireWildcard(_promise_external);
 
-	var _requestmap = __webpack_require__(273);
+	var _requestmap = __webpack_require__(265);
 
-	var _type = __webpack_require__(252);
+	var _type = __webpack_require__(244);
 
 	var type = _interopRequireWildcard(_type);
 
@@ -32006,7 +31771,7 @@
 
 
 /***/ }),
-/* 272 */
+/* 264 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*! @license Firebase v4.1.3
@@ -32022,7 +31787,7 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _promise_external = __webpack_require__(251);
+	var _promise_external = __webpack_require__(243);
 
 	var promiseimpl = _interopRequireWildcard(_promise_external);
 
@@ -32064,7 +31829,7 @@
 
 
 /***/ }),
-/* 273 */
+/* 265 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*! @license Firebase v4.1.3
@@ -32095,11 +31860,11 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     */
 
 
-	var _object = __webpack_require__(250);
+	var _object = __webpack_require__(242);
 
 	var object = _interopRequireWildcard(_object);
 
-	var _constants = __webpack_require__(246);
+	var _constants = __webpack_require__(238);
 
 	var constants = _interopRequireWildcard(_constants);
 
@@ -32158,7 +31923,7 @@
 
 
 /***/ }),
-/* 274 */
+/* 266 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*! @license Firebase v4.1.3
@@ -32197,35 +31962,35 @@
 	exports.addVersionHeader_ = addVersionHeader_;
 	exports.makeRequest = makeRequest;
 
-	var _array = __webpack_require__(264);
+	var _array = __webpack_require__(256);
 
 	var array = _interopRequireWildcard(_array);
 
-	var _backoff = __webpack_require__(275);
+	var _backoff = __webpack_require__(267);
 
 	var backoff = _interopRequireWildcard(_backoff);
 
-	var _error = __webpack_require__(245);
+	var _error = __webpack_require__(237);
 
 	var errorsExports = _interopRequireWildcard(_error);
 
-	var _object = __webpack_require__(250);
+	var _object = __webpack_require__(242);
 
 	var object = _interopRequireWildcard(_object);
 
-	var _promise_external = __webpack_require__(251);
+	var _promise_external = __webpack_require__(243);
 
 	var promiseimpl = _interopRequireWildcard(_promise_external);
 
-	var _type = __webpack_require__(252);
+	var _type = __webpack_require__(244);
 
 	var type = _interopRequireWildcard(_type);
 
-	var _url = __webpack_require__(260);
+	var _url = __webpack_require__(252);
 
 	var UrlUtils = _interopRequireWildcard(_url);
 
-	var _xhrio = __webpack_require__(253);
+	var _xhrio = __webpack_require__(245);
 
 	var XhrIoExports = _interopRequireWildcard(_xhrio);
 
@@ -32430,7 +32195,7 @@
 
 
 /***/ }),
-/* 275 */
+/* 267 */
 /***/ (function(module, exports) {
 
 	/*! @license Firebase v4.1.3
@@ -32561,7 +32326,7 @@
 
 
 /***/ }),
-/* 276 */
+/* 268 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*! @license Firebase v4.1.3
@@ -32590,15 +32355,15 @@
 	});
 	exports.registerMessaging = registerMessaging;
 
-	var _windowController = __webpack_require__(277);
+	var _windowController = __webpack_require__(269);
 
 	var _windowController2 = _interopRequireDefault(_windowController);
 
-	var _swController = __webpack_require__(286);
+	var _swController = __webpack_require__(278);
 
 	var _swController2 = _interopRequireDefault(_swController);
 
-	var _app = __webpack_require__(232);
+	var _app = __webpack_require__(224);
 
 	var _app2 = _interopRequireDefault(_app);
 
@@ -32621,7 +32386,7 @@
 
 
 /***/ }),
-/* 277 */
+/* 269 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*! @license Firebase v4.1.3
@@ -32653,27 +32418,27 @@
 
 	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-	var _controllerInterface = __webpack_require__(278);
+	var _controllerInterface = __webpack_require__(270);
 
 	var _controllerInterface2 = _interopRequireDefault(_controllerInterface);
 
-	var _errors = __webpack_require__(279);
+	var _errors = __webpack_require__(271);
 
 	var _errors2 = _interopRequireDefault(_errors);
 
-	var _workerPageMessage = __webpack_require__(284);
+	var _workerPageMessage = __webpack_require__(276);
 
 	var _workerPageMessage2 = _interopRequireDefault(_workerPageMessage);
 
-	var _defaultSw = __webpack_require__(285);
+	var _defaultSw = __webpack_require__(277);
 
 	var _defaultSw2 = _interopRequireDefault(_defaultSw);
 
-	var _notificationPermission = __webpack_require__(283);
+	var _notificationPermission = __webpack_require__(275);
 
 	var _notificationPermission2 = _interopRequireDefault(_notificationPermission);
 
-	var _subscribe = __webpack_require__(234);
+	var _subscribe = __webpack_require__(226);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -33021,7 +32786,7 @@
 
 
 /***/ }),
-/* 278 */
+/* 270 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*! @license Firebase v4.1.3
@@ -33051,17 +32816,17 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _errors = __webpack_require__(239);
+	var _errors = __webpack_require__(231);
 
-	var _errors2 = __webpack_require__(279);
+	var _errors2 = __webpack_require__(271);
 
 	var _errors3 = _interopRequireDefault(_errors2);
 
-	var _tokenManager = __webpack_require__(280);
+	var _tokenManager = __webpack_require__(272);
 
 	var _tokenManager2 = _interopRequireDefault(_tokenManager);
 
-	var _notificationPermission = __webpack_require__(283);
+	var _notificationPermission = __webpack_require__(275);
 
 	var _notificationPermission2 = _interopRequireDefault(_notificationPermission);
 
@@ -33260,7 +33025,7 @@
 
 
 /***/ }),
-/* 279 */
+/* 271 */
 /***/ (function(module, exports) {
 
 	/*! @license Firebase v4.1.3
@@ -33337,7 +33102,7 @@
 
 
 /***/ }),
-/* 280 */
+/* 272 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*! @license Firebase v4.1.3
@@ -33367,17 +33132,17 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _errors = __webpack_require__(239);
+	var _errors = __webpack_require__(231);
 
-	var _errors2 = __webpack_require__(279);
+	var _errors2 = __webpack_require__(271);
 
 	var _errors3 = _interopRequireDefault(_errors2);
 
-	var _arrayBufferToBase = __webpack_require__(281);
+	var _arrayBufferToBase = __webpack_require__(273);
 
 	var _arrayBufferToBase2 = _interopRequireDefault(_arrayBufferToBase);
 
-	var _fcmDetails = __webpack_require__(282);
+	var _fcmDetails = __webpack_require__(274);
 
 	var _fcmDetails2 = _interopRequireDefault(_fcmDetails);
 
@@ -33758,7 +33523,7 @@
 
 
 /***/ }),
-/* 281 */
+/* 273 */
 /***/ (function(module, exports) {
 
 	/*! @license Firebase v4.1.3
@@ -33800,7 +33565,7 @@
 
 
 /***/ }),
-/* 282 */
+/* 274 */
 /***/ (function(module, exports) {
 
 	/*! @license Firebase v4.1.3
@@ -33842,7 +33607,7 @@
 
 
 /***/ }),
-/* 283 */
+/* 275 */
 /***/ (function(module, exports) {
 
 	/*! @license Firebase v4.1.3
@@ -33879,7 +33644,7 @@
 
 
 /***/ }),
-/* 284 */
+/* 276 */
 /***/ (function(module, exports) {
 
 	/*! @license Firebase v4.1.3
@@ -33937,7 +33702,7 @@
 
 
 /***/ }),
-/* 285 */
+/* 277 */
 /***/ (function(module, exports) {
 
 	/*! @license Firebase v4.1.3
@@ -33973,7 +33738,7 @@
 
 
 /***/ }),
-/* 286 */
+/* 278 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*! @license Firebase v4.1.3
@@ -34005,19 +33770,19 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _controllerInterface = __webpack_require__(278);
+	var _controllerInterface = __webpack_require__(270);
 
 	var _controllerInterface2 = _interopRequireDefault(_controllerInterface);
 
-	var _errors = __webpack_require__(279);
+	var _errors = __webpack_require__(271);
 
 	var _errors2 = _interopRequireDefault(_errors);
 
-	var _workerPageMessage = __webpack_require__(284);
+	var _workerPageMessage = __webpack_require__(276);
 
 	var _workerPageMessage2 = _interopRequireDefault(_workerPageMessage);
 
-	var _fcmDetails = __webpack_require__(282);
+	var _fcmDetails = __webpack_require__(274);
 
 	var _fcmDetails2 = _interopRequireDefault(_fcmDetails);
 
@@ -34350,10 +34115,10 @@
 
 
 /***/ }),
-/* 287 */
+/* 279 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(module) {(function() { var firebase=__webpack_require__(231);/*
+	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(module) {(function() { var firebase=__webpack_require__(223);/*
 
 	 Copyright 2015 Google Inc. All Rights Reserved.
 
@@ -34422,7 +34187,7 @@
 	function(event){this.forwardTab_=undefined;if(event.keyCode===27){event.preventDefault();event.stopPropagation();var cancelEvent=new supportCustomEvent("cancel",{bubbles:false,cancelable:true});var dpi=this.pendingDialogStack[0];if(dpi&&dpi.dialog.dispatchEvent(cancelEvent))dpi.dialog.close()}else if(event.keyCode===9)this.forwardTab_=!event.shiftKey};dialogPolyfill.DialogManager.prototype.checkDOM_=function(removed){var clone=this.pendingDialogStack.slice();clone.forEach(function(dpi){if(removed.indexOf(dpi.dialog)!==
 	-1)dpi.downgradeModal();else dpi.maybeHideModal()})};dialogPolyfill.DialogManager.prototype.pushDialog=function(dpi){var allowed=(this.zIndexHigh_-this.zIndexLow_)/2-1;if(this.pendingDialogStack.length>=allowed)return false;if(this.pendingDialogStack.unshift(dpi)===1)this.blockDocument();this.updateStacking();return true};dialogPolyfill.DialogManager.prototype.removeDialog=function(dpi){var index=this.pendingDialogStack.indexOf(dpi);if(index==-1)return;this.pendingDialogStack.splice(index,1);if(this.pendingDialogStack.length===
 	0)this.unblockDocument();this.updateStacking()};dialogPolyfill.dm=new dialogPolyfill.DialogManager;document.addEventListener("submit",function(ev){var target=ev.target;if(!target||!target.hasAttribute("method"))return;if(target.getAttribute("method").toLowerCase()!=="dialog")return;ev.preventDefault();var dialog=findNearestDialog((ev.target));if(!dialog)return;var returnValue;var cands=[document.activeElement,ev.explicitOriginalTarget];var els=["BUTTON","INPUT"];cands.some(function(cand){if(cand&&
-	cand.form==ev.target&&els.indexOf(cand.nodeName.toUpperCase())!=-1){returnValue=cand.value;return true}});dialog.close(returnValue)},true);dialogPolyfill["forceRegisterDialog"]=dialogPolyfill.forceRegisterDialog;dialogPolyfill["registerDialog"]=dialogPolyfill.registerDialog;if("function"==="function"&&"amd"in __webpack_require__(289))!(__WEBPACK_AMD_DEFINE_RESULT__ = function(){return dialogPolyfill}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));else if(typeof module==="object"&&typeof module["exports"]==="object")module["exports"]=dialogPolyfill;else window["dialogPolyfill"]=dialogPolyfill})();(function(){var h,l=this;function m(a){return void 0!==a}function aa(){}function ba(a){var b=typeof a;if("object"==b)if(a){if(a instanceof Array)return"array";if(a instanceof Object)return b;var c=Object.prototype.toString.call(a);if("[object Window]"==c)return"object";if("[object Array]"==c||"number"==typeof a.length&&"undefined"!=typeof a.splice&&"undefined"!=typeof a.propertyIsEnumerable&&!a.propertyIsEnumerable("splice"))return"array";if("[object Function]"==c||"undefined"!=typeof a.call&&"undefined"!=
+	cand.form==ev.target&&els.indexOf(cand.nodeName.toUpperCase())!=-1){returnValue=cand.value;return true}});dialog.close(returnValue)},true);dialogPolyfill["forceRegisterDialog"]=dialogPolyfill.forceRegisterDialog;dialogPolyfill["registerDialog"]=dialogPolyfill.registerDialog;if("function"==="function"&&"amd"in __webpack_require__(281))!(__WEBPACK_AMD_DEFINE_RESULT__ = function(){return dialogPolyfill}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));else if(typeof module==="object"&&typeof module["exports"]==="object")module["exports"]=dialogPolyfill;else window["dialogPolyfill"]=dialogPolyfill})();(function(){var h,l=this;function m(a){return void 0!==a}function aa(){}function ba(a){var b=typeof a;if("object"==b)if(a){if(a instanceof Array)return"array";if(a instanceof Object)return b;var c=Object.prototype.toString.call(a);if("[object Window]"==c)return"object";if("[object Array]"==c||"number"==typeof a.length&&"undefined"!=typeof a.splice&&"undefined"!=typeof a.propertyIsEnumerable&&!a.propertyIsEnumerable("splice"))return"array";if("[object Function]"==c||"undefined"!=typeof a.call&&"undefined"!=
 	typeof a.propertyIsEnumerable&&!a.propertyIsEnumerable("call"))return"function"}else return"null";else if("function"==b&&"undefined"==typeof a.call)return"object";return b}function ca(a){return null!=a}function da(a){return"array"==ba(a)}function ea(a){var b=ba(a);return"array"==b||"object"==b&&"number"==typeof a.length}function n(a){return"string"==typeof a}function fa(a){return"number"==typeof a}function p(a){return"function"==ba(a)}function ga(a){var b=typeof a;return"object"==b&&null!=a||"function"==
 	b}var ha="closure_uid_"+(1E9*Math.random()>>>0),ia=0;function ja(a,b,c){return a.call.apply(a.bind,arguments)}function ka(a,b,c){if(!a)throw Error();if(2<arguments.length){var d=Array.prototype.slice.call(arguments,2);return function(){var c=Array.prototype.slice.call(arguments);Array.prototype.unshift.apply(c,d);return a.apply(b,c)}}return function(){return a.apply(b,arguments)}}function q(a,b,c){q=Function.prototype.bind&&-1!=Function.prototype.bind.toString().indexOf("native code")?ja:ka;return q.apply(null,
 	arguments)}function la(a,b){var c=Array.prototype.slice.call(arguments,1);return function(){var b=c.slice();b.push.apply(b,arguments);return a.apply(this,b)}}function r(a,b){for(var c in b)a[c]=b[c]}var ma=Date.now||function(){return+new Date};function na(a,b){a=a.split(".");var c=l;a[0]in c||!c.execScript||c.execScript("var "+a[0]);for(var d;a.length&&(d=a.shift());)!a.length&&m(b)?c[d]=b:c=c[d]&&c[d]!==Object.prototype[d]?c[d]:c[d]={}}function t(a,b){function c(){}c.prototype=b.prototype;a.h=b.prototype;
@@ -34694,10 +34459,10 @@
 	"%27")+"'"),e.opener=null,bc("b/12014412, meta tag with sanitized URL"),b='<META HTTP-EQUIV="refresh" content="0; url='+ra(b)+'">',e.document.write(oc((new mc).be(b))),e.document.close())):e=b.open(hc(a),d,e);e&&e.focus()}else window.location.assign(a)};na("firebaseui.auth.AuthUI",tl);na("firebaseui.auth.AuthUI.prototype.start",tl.prototype.start);na("firebaseui.auth.AuthUI.prototype.setConfig",tl.prototype.Vb);na("firebaseui.auth.AuthUI.prototype.signIn",tl.prototype.ue);na("firebaseui.auth.AuthUI.prototype.reset",
 	tl.prototype.reset);na("firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM",Wi);na("firebaseui.auth.CredentialHelper.NONE","none")})(); })();module.exports=firebaseui;
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(288)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(280)(module)))
 
 /***/ }),
-/* 288 */
+/* 280 */
 /***/ (function(module, exports) {
 
 	module.exports = function(module) {
@@ -34713,420 +34478,1301 @@
 
 
 /***/ }),
-/* 289 */
+/* 281 */
 /***/ (function(module, exports) {
 
 	module.exports = function() { throw new Error("define cannot be used indirect"); };
 
 
 /***/ }),
-/* 290 */
+/* 282 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	 * ReactFire is an open-source JavaScript library that allows you to add a
-	 * realtime data source to your React apps by providing an easy way to let
-	 * Firebase populate the state of React components.
-	 *
-	 * ReactFire 1.0.0
-	 * https://github.com/firebase/reactfire/
-	 * License: MIT
-	 */
-	/* eslint "strict": [2, "function"] */
-	(function(root, factory) {
-	  'use strict';
+	'use strict';
 
-	  /* istanbul ignore next */
-	  if (true) {
-	    // AMD
-	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() {
-	      return (root.ReactFireMixin = factory());
-	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	  } else if (typeof exports === 'object') {
-	    // CommonJS
-	    module.exports = factory();
-	  } else {
-	    // Global variables
-	    root.ReactFireMixin = factory();
-	  }
-	}(this, function() {
-	  'use strict';
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
 
-	  /*************/
-	  /*  HELPERS  */
-	  /*************/
-	  /**
-	   * Returns the key of a Firebase snapshot across SDK versions.
-	   *
-	   * @param {DataSnapshot} snapshot A Firebase snapshot.
-	   * @return {string|null} key The Firebase snapshot's key.
-	   */
-	  function _getKey(snapshot) {
-	    var key;
-	    if (typeof snapshot.key === 'function') {
-	      key = snapshot.key();
-	    } else if (typeof snapshot.key === 'string' || snapshot.key === null) {
-	      key = snapshot.key;
-	    } else {
-	      key = snapshot.name();
-	    }
-	    return key;
-	  }
+	var _react = __webpack_require__(1);
 
-	  /**
-	   * Returns the reference of a Firebase snapshot or reference across SDK versions.
-	   *
-	   * @param {DataSnapshot|DatabaseReference} snapshotOrRef A Firebase snapshot or reference.
-	   * @return {DatabaseReference} ref The Firebase reference corresponding to the inputted snapshot
-	   * or reference.
-	   */
-	  function _getRef(snapshotOrRef) {
-	    var ref;
-	    if (typeof snapshotOrRef.ref === 'function') {
-	      ref = snapshotOrRef.ref();
-	    } else {
-	      ref = snapshotOrRef.ref;
-	    }
-	    return ref;
-	  }
+	var _react2 = _interopRequireDefault(_react);
 
-	  /**
-	   * Returns the index of the key in the list. If an item with the key is not in the list, -1 is
-	   * returned.
-	   *
-	   * @param {Array<any>} list A list of items.
-	   * @param {string} key The key for which to search.
-	   * @return {number} The index of the item which has the provided key or -1 if no items have the
-	   * provided key.
-	   */
-	  function _indexForKey(list, key) {
-	    for (var i = 0, length = list.length; i < length; ++i) {
-	      if (list[i]['.key'] === key) {
-	        return i;
-	      }
-	    }
+	var _reactRouter = __webpack_require__(159);
 
-	    /* istanbul ignore next */
-	    return -1;
-	  }
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	  /**
-	   * Throws a formatted error message.
-	   *
-	   * @param {string} message The error message to throw.
-	   */
-	  function _throwError(message) {
-	    throw new Error('ReactFire: ' + message);
-	  }
-
-	  /**
-	   * Validates the name of the variable which is being bound.
-	   *
-	   * @param {string} bindVar The variable which is being bound.
-	   */
-	  function _validateBindVar(bindVar) {
-	    var errorMessage;
-
-	    if (typeof bindVar !== 'string') {
-	      errorMessage = 'Bind variable must be a string. Got: ' + bindVar;
-	    } else if (bindVar.length === 0) {
-	      errorMessage = 'Bind variable must be a non-empty string. Got: ""';
-	    } else if (bindVar.length > 768) {
-	      // Firebase can only stored child paths up to 768 characters
-	      errorMessage = 'Bind variable is too long to be stored in Firebase. Got: ' + bindVar;
-	    } else if (/[\[\].#$\/\u0000-\u001F\u007F]/.test(bindVar)) {
-	      // Firebase does not allow node keys to contain the following characters
-	      errorMessage = 'Bind variable cannot contain any of the following characters: . # $ ] [ /. Got: ' + bindVar;
-	    }
-
-	    if (typeof errorMessage !== 'undefined') {
-	      _throwError(errorMessage);
-	    }
-	  }
-
-	  /**
-	   * Creates a new record given a key-value pair.
-	   *
-	   * @param {string} key The new record's key.
-	   * @param {any} value The new record's value.
-	   * @return {Object} The new record.
-	   */
-	  function _createRecord(key, value) {
-	    var record = {};
-	    if (typeof value === 'object' && value !== null) {
-	      record = value;
-	    } else {
-	      record['.value'] = value;
-	    }
-	    record['.key'] = key;
-
-	    return record;
-	  }
+	// Create and render the parent component (called "Home")
+	// Import react dependencies
+	exports.default = _react2.default.createClass({
+		displayName: 'home',
 
 
-	  /******************************/
-	  /*  BIND AS OBJECT LISTENERS  */
-	  /******************************/
-	  /**
-	   * 'value' listener which updates the value of the bound state variable.
-	   *
-	   * @param {string} bindVar The state variable to which the data is being bound.
-	   * @param {Firebase.DataSnapshot} snapshot A snapshot of the data being bound.
-	   */
-	  function _objectValue(bindVar, snapshot) {
-	    var key = _getKey(snapshot);
-	    var value = snapshot.val();
+		// Set up the navbar menu
+		render: function render() {
 
-	    this.data[bindVar] = _createRecord(key, value);
-
-	    this.setState(this.data);
-	  }
-
-
-	  /*****************************/
-	  /*  BIND AS ARRAY LISTENERS  */
-	  /*****************************/
-	  /**
-	   * 'child_added' listener which adds a new record to the bound array.
-	   *
-	   * @param {string} bindVar The state variable to which the data is being bound.
-	   * @param {Firebase.DataSnapshot} snapshot A snapshot of the data being bound.
-	   * @param {string|null} previousChildKey The key of the child after which the provided snapshot
-	   * is positioned; null if the provided snapshot is in the first position.
-	   */
-	  function _arrayChildAdded(bindVar, snapshot, previousChildKey) {
-	    var key = _getKey(snapshot);
-	    var value = snapshot.val();
-	    var array = this.data[bindVar];
-
-	    // Determine where to insert the new record
-	    var insertionIndex;
-	    if (previousChildKey === null) {
-	      insertionIndex = 0;
-	    } else {
-	      var previousChildIndex = _indexForKey(array, previousChildKey);
-	      insertionIndex = previousChildIndex + 1;
-	    }
-
-	    // Add the new record to the array
-	    array.splice(insertionIndex, 0, _createRecord(key, value));
-
-	    // Update state
-	    this.setState(this.data);
-	  }
-
-	  /**
-	   * 'child_removed' listener which removes a record from the bound array.
-	   *
-	   * @param {string} bindVar The state variable to which the data is bound.
-	   * @param {Firebase.DataSnapshot} snapshot A snapshot of the bound data.
-	   */
-	  function _arrayChildRemoved(bindVar, snapshot) {
-	    var array = this.data[bindVar];
-
-	    // Look up the record's index in the array
-	    var index = _indexForKey(array, _getKey(snapshot));
-
-	    // Splice out the record from the array
-	    array.splice(index, 1);
-
-	    // Update state
-	    this.setState(this.data);
-	  }
-
-	  /**
-	   * 'child_changed' listener which updates a record's value in the bound array.
-	   *
-	   * @param {string} bindVar The state variable to which the data is bound.
-	   * @param {Firebase.DataSnapshot} snapshot A snapshot of the data to bind.
-	   */
-	  function _arrayChildChanged(bindVar, snapshot) {
-	    var key = _getKey(snapshot);
-	    var value = snapshot.val();
-	    var array = this.data[bindVar];
-
-	    // Look up the record's index in the array
-	    var index = _indexForKey(array, key);
-
-	    // Update the record's value in the array
-	    array[index] = _createRecord(key, value);
-
-	    // Update state
-	    this.setState(this.data);
-	  }
-
-	  /**
-	   * 'child_moved' listener which updates a record's position in the bound array.
-	   *
-	   * @param {string} bindVar The state variable to which the data is bound.
-	   * @param {Firebase.DataSnapshot} snapshot A snapshot of the bound data.
-	   * @param {string|null} previousChildKey The key of the child after which the provided snapshot
-	   * is positioned; null if the provided snapshot is in the first position.
-	   */
-	  function _arrayChildMoved(bindVar, snapshot, previousChildKey) {
-	    var key = _getKey(snapshot);
-	    var array = this.data[bindVar];
-
-	    // Look up the record's index in the array
-	    var currentIndex = _indexForKey(array, key);
-
-	    // Splice out the record from the array
-	    var record = array.splice(currentIndex, 1)[0];
-
-	    // Determine where to re-insert the record
-	    var insertionIndex;
-	    if (previousChildKey === null) {
-	      insertionIndex = 0;
-	    } else {
-	      var previousChildIndex = _indexForKey(array, previousChildKey);
-	      insertionIndex = previousChildIndex + 1;
-	    }
-
-	    // Re-insert the record into the array
-	    array.splice(insertionIndex, 0, record);
-
-	    // Update state
-	    this.setState(this.data);
-	  }
-
-
-	  /*************/
-	  /*  BINDING  */
-	  /*************/
-	  /**
-	   * Creates a binding between Firebase and the inputted bind variable as either an array or
-	   * an object.
-	   *
-	   * @param {Firebase} firebaseRef The Firebase ref whose data to bind.
-	   * @param {string} bindVar The state variable to which to bind the data.
-	   * @param {function} cancelCallback The Firebase reference's cancel callback.
-	   * @param {boolean} bindAsArray Whether or not to bind as an array or object.
-	   */
-	  function _bind(firebaseRef, bindVar, cancelCallback, bindAsArray) {
-	    if (Object.prototype.toString.call(firebaseRef) !== '[object Object]') {
-	      _throwError('Invalid Firebase reference');
-	    }
-
-	    _validateBindVar(bindVar);
-
-	    if (typeof this.firebaseRefs[bindVar] !== 'undefined') {
-	      _throwError('this.state.' + bindVar + ' is already bound to a Firebase reference');
-	    }
-
-	    // Keep track of the Firebase reference we are setting up listeners on
-	    this.firebaseRefs[bindVar] = _getRef(firebaseRef);
-
-	    if (bindAsArray) {
-	      // Set initial state to an empty array
-	      this.data[bindVar] = [];
-	      this.setState(this.data);
-
-	      // Add listeners for all 'child_*' events
-	      this.firebaseListeners[bindVar] = {
-	        child_added: firebaseRef.on('child_added', _arrayChildAdded.bind(this, bindVar), cancelCallback),
-	        child_removed: firebaseRef.on('child_removed', _arrayChildRemoved.bind(this, bindVar), cancelCallback),
-	        child_changed: firebaseRef.on('child_changed', _arrayChildChanged.bind(this, bindVar), cancelCallback),
-	        child_moved: firebaseRef.on('child_moved', _arrayChildMoved.bind(this, bindVar), cancelCallback)
-	      };
-	    } else {
-	      // Add listener for 'value' event
-	      this.firebaseListeners[bindVar] = {
-	        value: firebaseRef.on('value', _objectValue.bind(this, bindVar), cancelCallback)
-	      };
-	    }
-	  }
-
-
-	  var ReactFireMixin = {
-	    /********************/
-	    /*  MIXIN LIFETIME  */
-	    /********************/
-	    /**
-	     * Initializes the Firebase refs and listeners arrays.
-	     **/
-	    componentWillMount: function() {
-	      this.data = {};
-	      this.firebaseRefs = {};
-	      this.firebaseListeners = {};
-	    },
-
-	    /**
-	     * Unbinds any remaining Firebase listeners.
-	     */
-	    componentWillUnmount: function() {
-	      for (var bindVar in this.firebaseRefs) {
-	        /* istanbul ignore else */
-	        if (this.firebaseRefs.hasOwnProperty(bindVar)) {
-	          this.unbind(bindVar);
-	        }
-	      }
-	    },
-
-
-	    /*************/
-	    /*  BINDING  */
-	    /*************/
-	    /**
-	     * Creates a binding between Firebase and the inputted bind variable as an array.
-	     *
-	     * @param {Firebase} firebaseRef The Firebase ref whose data to bind.
-	     * @param {string} bindVar The state variable to which to bind the data.
-	     * @param {function} cancelCallback The Firebase reference's cancel callback.
-	     */
-	    bindAsArray: function(firebaseRef, bindVar, cancelCallback) {
-	      var bindPartial = _bind.bind(this);
-	      bindPartial(firebaseRef, bindVar, cancelCallback, /* bindAsArray */ true);
-	    },
-
-	    /**
-	     * Creates a binding between Firebase and the inputted bind variable as an object.
-	     *
-	     * @param {Firebase} firebaseRef The Firebase ref whose data to bind.
-	     * @param {string} bindVar The state variable to which to bind the data.
-	     * @param {function} cancelCallback The Firebase reference's cancel callback.
-	     */
-	    bindAsObject: function(firebaseRef, bindVar, cancelCallback) {
-	      var bindPartial = _bind.bind(this);
-	      bindPartial(firebaseRef, bindVar, cancelCallback, /* bindAsArray */ false);
-	    },
-
-	    /**
-	     * Removes the binding between Firebase and the inputted bind variable.
-	     *
-	     * @param {string} bindVar The state variable to which the data is bound.
-	     * @param {function} callback Called when the data is unbound and the state has been updated.
-	     */
-	    unbind: function(bindVar, callback) {
-	      _validateBindVar(bindVar);
-
-	      if (typeof this.firebaseRefs[bindVar] === 'undefined') {
-	        _throwError('this.state.' + bindVar + ' is not bound to a Firebase reference');
-	      }
-
-	      // Turn off all Firebase listeners
-	      for (var event in this.firebaseListeners[bindVar]) {
-	        /* istanbul ignore else */
-	        if (this.firebaseListeners[bindVar].hasOwnProperty(event)) {
-	          var offListener = this.firebaseListeners[bindVar][event];
-	          this.firebaseRefs[bindVar].off(event, offListener);
-	        }
-	      }
-	      delete this.firebaseRefs[bindVar];
-	      delete this.firebaseListeners[bindVar];
-
-	      // Update state
-	      var newState = {};
-	      newState[bindVar] = undefined;
-	      this.setState(newState, callback);
-	    }
-	  };
-
-	  return ReactFireMixin;
-	}));
-
+			return _react2.default.createElement(
+				'div',
+				{ id: 'mainFrame' },
+				_react2.default.createElement(
+					'div',
+					{ className: 'navbar-wrapper', id: 'header' },
+					_react2.default.createElement(
+						'div',
+						null,
+						_react2.default.createElement(
+							'nav',
+							{ className: 'navbar navbar-inverse navbar-static-top' },
+							_react2.default.createElement(
+								'div',
+								null,
+								_react2.default.createElement(
+									'div',
+									{ className: 'navbar-header' },
+									_react2.default.createElement(
+										'a',
+										{ className: 'navbar-brand', href: '/#/menu' },
+										' \xA0\xA0\xA0\xA0',
+										_react2.default.createElement(
+											'strong',
+											null,
+											_react2.default.createElement(
+												'span',
+												{ id: 'navlogo' },
+												'netlab'
+											)
+										),
+										'\xA0\xA0 Histology'
+									)
+								),
+								_react2.default.createElement(
+									'div',
+									null,
+									_react2.default.createElement(
+										'ul',
+										{ className: 'nav navbar-nav' },
+										_react2.default.createElement(
+											'li',
+											null,
+											_react2.default.createElement(
+												_reactRouter.Link,
+												{ to: '/menu' },
+												'Menu '
+											)
+										),
+										_react2.default.createElement(
+											'li',
+											null,
+											_react2.default.createElement(
+												_reactRouter.Link,
+												{ to: '/mynotesall' },
+												'Notes '
+											)
+										),
+										_react2.default.createElement(
+											'li',
+											null,
+											_react2.default.createElement(
+												_reactRouter.Link,
+												{ to: '/viewer/direct/struc/sys' },
+												'Scope '
+											)
+										),
+										_react2.default.createElement(
+											'li',
+											null,
+											_react2.default.createElement(
+												_reactRouter.Link,
+												{ to: '/pins' },
+												'Pins '
+											)
+										),
+										_react2.default.createElement(
+											'li',
+											null,
+											_react2.default.createElement(
+												_reactRouter.Link,
+												{ to: '/profile' },
+												'Profile '
+											)
+										)
+									)
+								)
+							)
+						)
+					)
+				),
+				_react2.default.createElement('hr', null),
+				_react2.default.createElement('br', null),
+				_react2.default.createElement(
+					'div',
+					{ className: 'container' },
+					this.props.children
+				),
+				_react2.default.createElement(
+					'div',
+					{ className: 'icon-bar navbar-fixed-bottom', id: 'footer' },
+					'\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0',
+					_react2.default.createElement(
+						'a',
+						{ href: '/#/menu' },
+						_react2.default.createElement('i', { className: 'icon-home' })
+					),
+					'\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0',
+					_react2.default.createElement(
+						'a',
+						{ href: '/#/mynotesall' },
+						_react2.default.createElement('i', { className: 'icon-notes' })
+					),
+					'\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0',
+					_react2.default.createElement(
+						'a',
+						{ href: '/#/viewer/direct/struc/sys' },
+						_react2.default.createElement('i', { className: 'icon-microscope' })
+					),
+					'\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0',
+					_react2.default.createElement(
+						'a',
+						{ href: '/#/pins' },
+						_react2.default.createElement('i', { className: 'icon-checkin' })
+					),
+					'\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0',
+					_react2.default.createElement(
+						'a',
+						{ href: '/#/profile' },
+						_react2.default.createElement('i', { className: 'icon-user' })
+					),
+					'\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0'
+				)
+			);
+		}
+	});
 
 /***/ }),
-/* 291 */,
+/* 283 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(159);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var helpers = __webpack_require__(284);
+
+	exports.default = _react2.default.createClass({
+		displayName: "menu",
+
+
+		getInitialState: function getInitialState() {
+			return {
+				slides: []
+			};
+		},
+
+		// Slide menu
+		componentDidMount: function componentDidMount() {
+
+			// call getSlides function to retrieve all slides from MongoDB
+			// this completes before menu is displayed
+			helpers.getSlides().then(function (data) {
+
+				// assemble the menu for display and apply hyperlinks to each menu item
+				// start by creating an array to receive the names of all the systems
+				var systems = [];
+				// iterate through all the slides and push the system names into the systems array
+				var sysSet = Object.keys(data).map(function (s) {
+
+					// if the system name isn't already in the array
+					if (systems.indexOf(data[s].system) < 0) {
+
+						systems.push(data[s].system);
+					}
+				});
+
+				// create an array of objects containing the hierarchy of systems & slides
+				var slides = [];
+				var catSet = [];
+
+				for (var i = 0; i < systems.length; i++) {
+					var cat = {};
+
+					catSet = [];
+					var slideArr = Object.keys(data).map(function (s) {
+
+						if (systems[i] === data[s].system) {
+							var slideObj = {};
+							slideObj.number = data[s].number;
+							slideObj.system = data[s].system;
+							slideObj.structure = data[s].structure;
+							catSet.push(slideObj);
+						} // end if	slide matches system
+					}); // for each slide
+
+					cat.system = systems[i];
+					cat.list = catSet;
+					slides.push(cat);
+				} // end for each system	
+
+				this.setState({ slides: slides });
+			}.bind(this));
+		},
+
+		render: function render() {
+
+			var slidelist = this.state.slides;
+			return _react2.default.createElement(
+				"div",
+				{ id: "menu", className: "appArea" },
+				_react2.default.createElement(
+					"div",
+					{ className: "imageDiv" },
+					slidelist.map(function (item, index) {
+
+						return _react2.default.createElement(
+							"div",
+							{ className: "panel panel-primary" },
+							"\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0",
+							_react2.default.createElement(
+								"div",
+								{ className: "panel-heading", id: "slideNote-head" },
+								"\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0",
+								_react2.default.createElement("h4", null),
+								"\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0"
+							),
+							"\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0",
+							_react2.default.createElement(
+								"div",
+								{ className: "panel-body" },
+								_react2.default.createElement(
+									"div",
+									{ key: index },
+									_react2.default.createElement(
+										"h4",
+										null,
+										item.system
+									),
+									item.list.map(function (subitem, i) {
+
+										var viewpath = '/viewer/' + subitem.number + '/' + subitem.structure + '/' + subitem.system;
+
+										return _react2.default.createElement(
+											"ul",
+											null,
+											_react2.default.createElement(
+												_reactRouter.Link,
+												{ to: viewpath },
+												_react2.default.createElement(
+													"li",
+													{ id: "slideitem", className: "lead" },
+													"\xA0",
+													subitem.structure
+												)
+											)
+										);
+									})
+								)
+							)
+						);
+					})
+				)
+			); // end return		      
+		} // end render
+
+	}); // end create class
+
+/***/ }),
+/* 284 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	// Helper function to fetch slides from MongoDB
+	var helpers = {
+
+		getSlides: function getSlides() {
+
+			return $.ajax({
+				url: '/api/slides/',
+				type: 'get'
+			}).done(function (data) {
+
+				var slides = [];
+
+				Object.keys(data).map(function (s) {
+					slides.push({
+						number: data[s].number,
+						category: data[s].category,
+						system: data[s].system,
+						structure: data[s].structure,
+						id: data[s]._id
+
+					});
+				});
+
+				// return the slide array back to the calling function
+				return slides;
+			}); // end .done (ajax callback)
+		} // end getSlides
+
+	}; // end helpers
+
+	// Export the helpers object
+	module.exports = helpers;
+
+/***/ }),
+/* 285 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(159);
+
+	var _firebase = __webpack_require__(223);
+
+	var _firebase2 = _interopRequireDefault(_firebase);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+	  displayName: 'viewer',
+
+
+	  // set up Firebase connection & get reference to Histology branch
+	  // allows data to be pushed
+	  componentWillMount: function componentWillMount() {
+	    this.firebaseRef = _firebase2.default.database().ref("histology");
+	  },
+
+
+	  // function to save the coordinates of last slide view when exiting viewer component
+	  componentWillUnmount: function componentWillUnmount() {
+
+	    // cross-frame access to variable in the third-party (IIPMOO) viewer
+	    var coords = $('#fullScopeView').get(0).contentWindow.viewCoords;
+
+	    if (coords) {
+	      // save the last slide view to local storage
+	      localStorage.setItem("lastview", coords);
+	    }
+	  },
+
+	  // function to create a pin record in Firebase for the current view
+	  pinThis: function pinThis() {
+
+	    // empty object to store the record
+	    var pinObj = {};
+	    // get current coordinates
+	    var coords = $('#fullScopeView').get(0).contentWindow.viewCoords;
+	    // populate the pin object
+	    pinObj.url = coords;
+	    // slice out slide number from full url
+	    pinObj.slide = coords.slice(44, 49);
+	    // slice location string just after the # sign
+	    pinObj.location = coords.slice(55);
+	    // pull system, structure and userId from local storage
+	    pinObj.system = localStorage.getItem("system");
+	    pinObj.structure = localStorage.getItem("structure");
+	    var userID = localStorage.getItem("userId");
+	    // push record to the user's pins branch in Firebase
+	    this.firebaseRef.child('/users/' + userID + '/pins').push(pinObj);
+	  },
+
+	  // assemble and render the iframe for the viewer component
+	  render: function render() {
+
+	    // pass slide number, structure & system from menu to viewer component
+	    var num = this.props.params.slideNum;
+	    var struc = this.props.params.slideStruc;
+	    var sys = this.props.params.slideSys;
+
+	    // detect direct navigation from navbar and load the system & structure from local storage 
+	    if (struc === "struc") {
+
+	      sys = localStorage.getItem("system");
+	      struc = localStorage.getItem("structure");
+	    }
+
+	    // write the structure & system to local storage to be used in other components
+	    localStorage.setItem("structure", struc);
+	    localStorage.setItem("system", sys);
+
+	    // point to the image url on the slide server
+	    var url = 'http://netlab.fios.vc/iipn/index.html?image=' + num + '.tif';
+
+	    // detect direct navigation from viewer link in the navbar
+	    if (num === "direct") {
+
+	      // assign url to reflect last slide view
+	      url = localStorage.getItem("lastview");
+	    }
+
+	    // detect if you are entering viewer from a pin location
+	    if (this.props.params.loc) {
+	      // build url for the current view based on the pin
+	      var urlStart = "http://netlab.fios.vc/iipn/index.html?image=";
+	      var number = this.props.params.num;
+	      var loc = this.props.params.loc;
+	      url = urlStart + number + '.tif#' + loc;
+	    }
+
+	    // or display the slide selected from menu
+	    // include buttons for adding and showing notes
+	    return _react2.default.createElement(
+	      'div',
+	      null,
+	      _react2.default.createElement(
+	        _reactRouter.Link,
+	        { to: '/createnote' },
+	        _react2.default.createElement(
+	          'button',
+	          { id: 'addNote', className: 'btn btn-default btn-small' },
+	          _react2.default.createElement('span', { className: 'glyphicon glyphicon-pencil' })
+	        )
+	      ),
+	      _react2.default.createElement('iframe', { id: 'fullScopeView', src: url, height: '600', width: '100%' }),
+	      _react2.default.createElement(
+	        _reactRouter.Link,
+	        { to: '/allnotescurrentslide' },
+	        _react2.default.createElement(
+	          'button',
+	          { id: 'showNotes', className: 'btn btn-default btn-small' },
+	          _react2.default.createElement('span', { className: 'glyphicon glyphicon-list-alt' })
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'button',
+	        { id: 'pinLoc', onClick: this.pinThis, className: 'btn btn-default btn-small' },
+	        _react2.default.createElement('span', { className: 'glyphicon glyphicon-map-marker' })
+	      )
+	    );
+	  }
+	});
+
+/***/ }),
+/* 286 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _firebase = __webpack_require__(223);
+
+	var _firebase2 = _interopRequireDefault(_firebase);
+
+	var _reactRouter = __webpack_require__(159);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+	  displayName: 'singlenote',
+
+
+	  // initialize state variables
+	  getInitialState: function getInitialState() {
+	    return {
+	      currentUser: "",
+	      noteSubject: "",
+	      noteBody: "",
+	      notes: "",
+	      noteset: "",
+	      viewUrl: "",
+	      note: ""
+	    };
+	  },
+
+	  componentWillMount: function componentWillMount() {
+	    // set up Firebase connection & get reference to Histology branch
+	    // allows data to be fetched
+	    this.firebaseRef = _firebase2.default.database().ref("histology");
+	    // assign the note's node key to oneNote
+	    var oneNote = this.props.params.key;
+	    // create an object to receive the note content
+	    var currentnote = {};
+	    // do a snapshot of that single user note
+	    this.firebaseRef.child('/notes/' + oneNote).once('value', function (dataSnapshot) {
+	      currentnote = dataSnapshot.val();
+	      // set the note state variable to the content of the single note
+	      this.setState({ note: currentnote });
+	    }.bind(this));
+	  },
+
+
+	  // updates coordinates if user changes their location in the slide view
+	  // or goes to a different slide from a note link
+	  componentWillUnmount: function componentWillUnmount() {
+
+	    var coords = $('#scopeView').get(0).contentWindow.viewCoords;
+
+	    if (coords) {
+	      localStorage.setItem("lastview", coords);
+	      localStorage.setItem("structure", this.state.note.structure);
+	      localStorage.setItem("system", this.state.note.system);
+	    }
+	  },
+
+
+	  // function to delete the current note
+	  deleteNote: function deleteNote() {
+	    // if this note belongs to the user they can delete it
+	    if (this.state.note.authorId === localStorage.getItem("userId")) {
+	      // use the note key to remove that node from notes branch in Firebase
+	      this.firebaseRef.child('/notes/' + this.props.params.key).remove();
+
+	      window.location = '/#/mynotesall';
+	    }
+	  },
+	  render: function render() {
+
+	    // get data from the note record in firebase via the note state variable
+	    var key = this.state.note.key;
+	    var url = this.state.note.url;
+	    var loc = this.props.params.loc;
+	    var author = this.state.note.author;
+	    var system = this.state.note.system;
+	    var structure = this.state.note.structure;
+	    var subject = this.state.note.subject;
+	    var body = this.state.note.body;
+
+	    // render the note information populated with the data from above
+	    return _react2.default.createElement(
+	      'div',
+	      { className: 'appArea' },
+	      _react2.default.createElement('iframe', { id: 'scopeView', src: url, height: '400', width: '100%' }),
+	      _react2.default.createElement('br', null),
+	      _react2.default.createElement('br', null),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'panel panel-primary' },
+	        '\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0',
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'panel-heading', id: 'slideNote-head' },
+	          '\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0',
+	          _react2.default.createElement(
+	            'h4',
+	            null,
+	            _react2.default.createElement(
+	              'span',
+	              { id: 'inactive' },
+	              'Note by:\xA0'
+	            ),
+	            ' ',
+	            author
+	          ),
+	          '\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0'
+	        ),
+	        '\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0',
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'panel-body' },
+	          _react2.default.createElement(
+	            'p',
+	            { className: 'lead' },
+	            'Author: ',
+	            author,
+	            _react2.default.createElement('br', null),
+	            'System: ',
+	            system,
+	            _react2.default.createElement('br', null),
+	            'Structure: ',
+	            structure,
+	            _react2.default.createElement(
+	              'button',
+	              { onClick: this.deleteNote, 'data-key': key, type: 'button', className: 'btn btn-muted btn-primary pull-right' },
+	              'Delete Note'
+	            ),
+	            _react2.default.createElement('br', null),
+	            _react2.default.createElement('br', null),
+	            'Subject: ',
+	            subject,
+	            _react2.default.createElement('br', null),
+	            'Note: ',
+	            body
+	          )
+	        )
+	      )
+	    );
+	  }
+	});
+
+/***/ }),
+/* 287 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+					value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _firebase = __webpack_require__(223);
+
+	var _firebase2 = _interopRequireDefault(_firebase);
+
+	var _reactRouter = __webpack_require__(159);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+					displayName: 'mynotesall',
+
+
+					// initialize state variables
+					getInitialState: function getInitialState() {
+									return {
+													currentUser: "",
+													noteSubject: "",
+													noteBody: "",
+													notes: "",
+													noteset: "",
+													viewUrl: ""
+									};
+					},
+
+					componentDidMount: function componentDidMount() {
+									// set up Firebase connection & get reference to Histology branch
+									// allows all slide note data to be fetched  
+									this.firebaseRef = _firebase2.default.database().ref("histology");
+									this.firebaseRef.child('/notes').once('value', function (dataSnapshot) {
+													var items = [];
+
+													// get a snapshot of all notes      
+													dataSnapshot.forEach(function (childSnapshot) {
+																	var item = childSnapshot.val();
+																	item['key'] = childSnapshot.key;
+																	items.push(item);
+													}.bind(this));
+													var view = localStorage.getItem("lastview");
+
+													// set up array to receive user's notes
+													var mynotes = [];
+													// get user's Id from local storage
+													var me = localStorage.getItem("userId");
+
+													// go through all notes and push user's notes only into mynotes array
+													for (var i = 0; i < items.length; i++) {
+
+																	if (items[i].authorId === me) {
+
+																					mynotes.push(items[i]);
+																	} // end if author is me
+													} // end for all notes
+
+													// sets notes state variable equal to mynotes
+													// set viewURL equal to the current view
+													this.setState({
+																	notes: mynotes,
+																	viewUrl: view
+													});
+
+													// get the mynotes array from the notes state variable
+													var notes = this.state.notes;
+													// iterate through the user's notes to set up the note list items for display
+													var noteSet = Object.keys(notes).map(function (s) {
+																	var url = notes[s].url;
+																	var num = url.slice(44, 49);
+																	var loc = url.slice(55);
+																	var notepath = '/singlenote/' + notes[s].key + '/' + loc;
+																	return _react2.default.createElement(
+																					_reactRouter.Link,
+																					{ to: notepath },
+																					_react2.default.createElement(
+																									'li',
+																									{ id: 'noteitem', key: notes[s].key, className: 'lead' },
+																									'Author: ',
+																									notes[s].author,
+																									_react2.default.createElement('br', null),
+																									'Structure: ',
+																									notes[s].structure,
+																									_react2.default.createElement('br', null),
+																									'Subject: ',
+																									notes[s].subject,
+																									_react2.default.createElement('br', null),
+																									'Note: ',
+																									notes[s].body,
+																									_react2.default.createElement('br', null)
+																					)
+																	);
+													});
+
+													this.setState({ noteset: noteSet });
+									}.bind(this));
+					},
+					componentWillUnmount: function componentWillUnmount() {
+
+									this.firebaseRef.off();
+					},
+					render: function render() {
+
+									var url = this.state.viewUrl;
+
+									if (this.props.params.noteUrl) {
+													url = this.state.noteUrl;
+									} // end if
+
+									return _react2.default.createElement(
+													'div',
+													{ className: 'appArea' },
+													_react2.default.createElement(
+																	'div',
+																	{ className: 'panel panel-primary' },
+																	_react2.default.createElement(
+																					'div',
+																					{ className: 'panel-heading', id: 'slideNote-head' },
+																					_react2.default.createElement(
+																									'h4',
+																									null,
+																									'\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0My Notes \xA0\xA0 ',
+																									_react2.default.createElement(
+																													_reactRouter.Link,
+																													{ to: '/savednotes' },
+																													_react2.default.createElement(
+																																	'span',
+																																	{ id: 'inactive' },
+																																	'Saved Notes'
+																													)
+																									)
+																					)
+																	),
+																	_react2.default.createElement(
+																					'div',
+																					{ className: 'panel-body' },
+																					_react2.default.createElement(
+																									'ul',
+																									null,
+																									this.state.noteset
+																					)
+																	)
+													)
+									);
+					}
+	});
+
+/***/ }),
+/* 288 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _firebase = __webpack_require__(223);
+
+	var _firebase2 = _interopRequireDefault(_firebase);
+
+	var _reactRouter = __webpack_require__(159);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+		displayName: 'savednotes',
+
+
+		// initialize state variables
+		getInitialState: function getInitialState() {
+			return {
+				currentUser: "",
+				noteSubject: "",
+				noteBody: "",
+				notes: "",
+				noteset: "",
+				viewUrl: ""
+			};
+		},
+
+		componentDidMount: function componentDidMount() {
+			// set up Firebase connection & get reference to Histology branch
+			// allows all slide note data to be fetched 
+			this.firebaseRef = _firebase2.default.database().ref("histology");
+			this.firebaseRef.child('/notes').once('value', function (dataSnapshot) {
+				var items = [];
+
+				// get a snapshot of all notes 
+				dataSnapshot.forEach(function (childSnapshot) {
+					var item = childSnapshot.val();
+					item['key'] = childSnapshot.key;
+					items.push(item);
+				}.bind(this));
+
+				var view = localStorage.getItem("lastview");
+
+				// get user's Id from local storage
+				var me = localStorage.getItem("userId");
+
+				// get a snapshot of the user's saved notes
+				this.firebaseRef.child('/users/' + me + '/saved').once('value', function (dataSnap) {
+
+					// put the user's saved notes into the savedList array
+					var savedlist = [];
+
+					dataSnap.forEach(function (childSnap) {
+						savedlist.push(childSnap.key);
+					}.bind(this));
+
+					var savednotes = [];
+
+					for (var i = 0; i < items.length; i++) {
+
+						if (savedlist.indexOf(items[i].key) > 0) {
+
+							console.log("saved note: " + items[i].key);
+							savednotes.push(items[i]);
+						} // end if author is me
+					} // end for all notes
+
+					// sets notes state variable equal to saved notes
+					// set viewURL equal to the current view
+					this.setState({
+						notes: savednotes,
+						viewUrl: view
+					});
+
+					// get the saved notes array from the notes state variable
+					var notes = this.state.notes;
+					// iterate through the user's notes to set up the saved note list items for display  
+					var noteSet = Object.keys(notes).map(function (s) {
+						var url = notes[s].url;
+						var num = url.slice(44, 49);
+						var loc = url.slice(55);
+						var notepath = '/singlenote/' + notes[s].key + '/' + loc;
+						return _react2.default.createElement(
+							_reactRouter.Link,
+							{ to: notepath },
+							_react2.default.createElement(
+								'li',
+								{ id: 'noteitem', key: notes[s].key, className: 'lead' },
+								'Author: ',
+								notes[s].author,
+								_react2.default.createElement('br', null),
+								'Structure: ',
+								notes[s].structure,
+								_react2.default.createElement('br', null),
+								'Subject: ',
+								notes[s].subject,
+								_react2.default.createElement('br', null),
+								'Note: ',
+								notes[s].body,
+								_react2.default.createElement('br', null)
+							)
+						);
+					});
+
+					this.setState({ noteset: noteSet });
+				}.bind(this));
+			}.bind(this));
+		},
+		componentWillUnmount: function componentWillUnmount() {
+
+			this.firebaseRef.off();
+		},
+		render: function render() {
+
+			var url = this.state.viewUrl;
+
+			if (this.props.params.noteUrl) {
+				url = this.state.noteUrl;
+			} // end if
+
+			return _react2.default.createElement(
+				'div',
+				{ className: 'appArea' },
+				_react2.default.createElement(
+					'div',
+					{ className: 'panel panel-primary' },
+					_react2.default.createElement(
+						'div',
+						{ className: 'panel-heading', id: 'slideNote-head' },
+						_react2.default.createElement(
+							'h4',
+							null,
+							'\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0',
+							_react2.default.createElement(
+								_reactRouter.Link,
+								{ to: '/mynotesall' },
+								_react2.default.createElement(
+									'span',
+									{ id: 'inactive' },
+									'My Notes'
+								)
+							),
+							' \xA0\xA0 Saved Notes'
+						)
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'panel-body' },
+						_react2.default.createElement(
+							'ul',
+							null,
+							this.state.noteset
+						)
+					)
+				)
+			);
+		}
+	});
+
+/***/ }),
+/* 289 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _firebase = __webpack_require__(223);
+
+	var _firebase2 = _interopRequireDefault(_firebase);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+		displayName: 'createnote',
+
+
+		// initialize state variable 
+		getInitialState: function getInitialState() {
+			return {
+				currentUser: "",
+				noteSubject: "",
+				noteBody: ""
+			};
+		},
+
+		// set up Firebase connection & get reference to Histology branch
+		// allows data to be pushed
+		componentWillMount: function componentWillMount() {
+			this.firebaseRef = _firebase2.default.database().ref("histology");
+		},
+
+
+		// updates coordinates if user changes the slide view location
+		componentWillUnmount: function componentWillUnmount() {
+
+			// access the view coordinates variable within the IIPMOO viewer in the iframe
+			var coords = $('#scopeView').get(0).contentWindow.viewCoords;
+
+			if (coords) {
+				localStorage.setItem("lastview", coords);
+			}
+		},
+
+
+		// Respond to the user form input
+		handleChange: function handleChange(event) {
+
+			var newState = {};
+			newState[event.target.id] = event.target.value;
+			this.setState(newState);
+		},
+
+		// When a user submits form data
+		handleSubmit: function handleSubmit(event) {
+
+			// prevent the form from trying to submit itself
+			event.preventDefault();
+
+			// access the view coordinates variable within the IIPMOO viewer in the iframe
+			var coords = $('#scopeView').get(0).contentWindow.viewCoords;
+
+			// create empty note object
+			var noteObj = {};
+
+			// populate the note object with data
+			noteObj.url = coords;
+			noteObj.slide = coords.slice(44, 49);
+			noteObj.system = localStorage.getItem("system");
+			noteObj.structure = localStorage.getItem("structure");
+			noteObj.author = localStorage.getItem("displayName");
+			noteObj.authorId = localStorage.getItem("userId");
+			noteObj.subject = this.state.noteSubject;
+			noteObj.body = this.state.noteBody;
+
+			// clear the input fields after submitting
+			this.setState({ noteSubject: "" });
+			this.setState({ noteBody: "" });
+
+			// push the note object into the Firebase database under the notes branch
+			var res = this.firebaseRef.child('/notes').push(noteObj);
+			// get the node key (the unique ID for that note) out of the returned JSON object 
+			var noteId = JSON.stringify(res).slice(54, 73);
+
+			// create entry in this user's branch for this node key
+			this.firebaseRef.chlld('/users/' + noteObj.authorId + '/notes').push(noteId);
+
+			// switch the window back to the scope component after note is submitted
+			window.location = '/#/viewer/direct/struc/sys';
+		}, // end handleSubmit
+
+		render: function render() {
+
+			// get the last viewed location...
+			var url = localStorage.getItem("lastview");
+			// and display it:
+			return _react2.default.createElement(
+				'div',
+				{ className: 'appArea' },
+				_react2.default.createElement('iframe', { id: 'scopeView', src: url, height: '350', width: '100%' }),
+				_react2.default.createElement(
+					'div',
+					{ className: 'panel panel-default' },
+					_react2.default.createElement(
+						'div',
+						{ className: 'panel-heading' },
+						_react2.default.createElement('h3', { className: 'panel-title text-center' })
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'panel-body text-center' },
+						_react2.default.createElement(
+							'form',
+							{ onSubmit: this.handleSubmit, id: 'noteForm' },
+							_react2.default.createElement(
+								'div',
+								{ className: 'form-group' },
+								_react2.default.createElement('input', {
+									type: 'text',
+									value: this.state.noteSubject,
+									className: 'form-control',
+									id: 'noteSubject',
+									placeholder: 'Subject',
+									onChange: this.handleChange,
+									required: true
+								}),
+								_react2.default.createElement('br', null),
+								_react2.default.createElement('textarea', {
+									form: 'noteForm',
+									rows: '4',
+									cols: '50',
+									value: this.state.noteBody,
+									className: 'form-control',
+									id: 'noteBody',
+									placeholder: 'Note text',
+									onChange: this.handleChange,
+									required: true
+								}),
+								_react2.default.createElement('br', null),
+								_react2.default.createElement(
+									'button',
+									{ className: 'btn btn-primary', type: 'submit' },
+									'Save Note'
+								)
+							)
+						)
+					)
+				)
+			);
+		} // end of the return
+
+	}); // end of render
+
+/***/ }),
+/* 290 */,
+/* 291 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _firebase = __webpack_require__(223);
+
+	var _firebase2 = _interopRequireDefault(_firebase);
+
+	var _reactRouter = __webpack_require__(159);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+		displayName: 'profile',
+
+
+		// initialize state variables
+		getInitialState: function getInitialState() {
+
+			return {
+				currentUser: "",
+				noteSubject: "",
+				noteBody: "",
+				notes: "",
+				noteset: "",
+				viewUrl: ""
+			};
+		},
+
+		// lifecycle function that runs when component is loaded
+		// make connection to database in notes branch
+		componentDidMount: function componentDidMount() {
+			this.firebaseRef = _firebase2.default.database().ref("histology");
+			this.firebaseRef.child('/notes').once('value', function (dataSnapshot) {
+				var items = [];
+
+				// put all the notes into an array called items
+				dataSnapshot.forEach(function (childSnapshot) {
+					var item = childSnapshot.val();
+					item['key'] = childSnapshot.key;
+					items.push(item);
+				}.bind(this));
+				var view = localStorage.getItem("lastview");
+
+				// push the user's notes into mynotes array
+				var mynotes = [];
+				var me = localStorage.getItem("userId");
+
+				for (var i = 0; i < items.length; i++) {
+
+					if (items[i].authorId === me) {
+
+						mynotes.push(items[i]);
+					} // end if author is me
+				} // end for all notes
+
+				// set the state variable notes equal to mynotes (user's notes)
+				this.setState({
+					notes: mynotes,
+					viewUrl: view,
+					userName: localStorage.getItem("displayName"),
+					userEmail: localStorage.getItem("email")
+				});
+
+				// pull state variable into a local notes object
+				var notes = this.state.notes;
+
+				// for all notes within the object
+				var noteSet = Object.keys(notes).map(function (s) {
+
+					var url = notes[s].url;
+					var num = url.slice(44, 49);
+					var loc = url.slice(55);
+
+					// set up the path for the link to view a single note
+					var notepath = '/singlenote/' + notes[s].key + '/' + loc;
+
+					// assemble note display and assign link to the list element
+					return _react2.default.createElement(
+						_reactRouter.Link,
+						{ to: notepath },
+						_react2.default.createElement(
+							'li',
+							{ id: 'noteitem', className: 'lead', key: notes[s].key },
+							'Author: ',
+							notes[s].author,
+							_react2.default.createElement('br', null),
+							'Structure: ',
+							notes[s].structure,
+							_react2.default.createElement('br', null),
+							'Subject: ',
+							notes[s].subject,
+							_react2.default.createElement('br', null),
+							'Note: ',
+							notes[s].body,
+							_react2.default.createElement('br', null)
+						)
+					);
+				});
+
+				// copy the finished notes list elements into the noteset state variable
+				this.setState({ noteset: noteSet });
+
+				// bind the firebase data snapshot function to the component
+			}.bind(this));
+		},
+		componentWillUnmount: function componentWillUnmount() {
+
+			this.firebaseRef.off();
+		},
+		render: function render() {
+
+			return _react2.default.createElement(
+				'div',
+				{ className: 'appArea' },
+				_react2.default.createElement(
+					'div',
+					{ className: 'panel panel-primary' },
+					'\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0',
+					_react2.default.createElement(
+						'h2',
+						null,
+						'\xA0\xA0\xA0\xA0\xA0\xA0',
+						this.state.userName,
+						_react2.default.createElement('br', null),
+						'\xA0\xA0\xA0\xA0\xA0\xA0',
+						this.state.userEmail
+					),
+					'\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0 ',
+					_react2.default.createElement(
+						'div',
+						{ className: 'panel-heading', id: 'slideNote-head' },
+						'\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0',
+						_react2.default.createElement(
+							'h4',
+							null,
+							'\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0Notes:'
+						),
+						'\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0'
+					),
+					'\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0',
+					_react2.default.createElement(
+						'div',
+						{ className: 'panel-body' },
+						_react2.default.createElement(
+							'ul',
+							null,
+							this.state.noteset
+						)
+					)
+				)
+			);
+		}
+	});
+
+/***/ }),
 /* 292 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -35140,16 +35786,183 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _firebase = __webpack_require__(223);
+
+	var _firebase2 = _interopRequireDefault(_firebase);
+
+	var _reactRouter = __webpack_require__(159);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	exports.default = _react2.default.createClass({
-		displayName: 'pins',
+		displayName: 'allnotescurrentslide',
+
+
+		// initialize state variables
+		getInitialState: function getInitialState() {
+			return {
+				currentUser: "",
+				noteSubject: "",
+				noteBody: "",
+				notes: "",
+				noteset: "",
+				viewUrl: ""
+			};
+		},
+
+		// function to adjust viewer window to match the note selected
+		viewNoteImg: function viewNoteImg(event) {
+			event.preventDefault();
+
+			var viewTarget = event.target.getAttribute('data-url');
+			localStorage.setItem("structure", event.target.getAttribute('data-struc'));
+			localStorage.setItem("system", event.target.getAttribute('data-sys'));
+
+			$("#scopeView").attr('src', viewTarget);
+		},
+
+		// saves noteId to the user's saved branch in Firebase
+		saveNoteId: function saveNoteId(e) {
+			e.preventDefault();
+
+			var saved = {};
+			var noteId = e.target.getAttribute('data-key');
+			var userID = localStorage.getItem("userId");
+			var dname = localStorage.getItem("displayName");
+
+			this.firebaseRef.child('/users/' + userID + '/saved/' + noteId).update({ username: dname });
+			e.target.setAttribute('disabled', 'disabled');
+		},
+
+		componentDidMount: function componentDidMount() {
+			// set up Firebase connection & get reference to Histology branch
+			// allows data to be fetched
+			this.firebaseRef = _firebase2.default.database().ref("histology");
+			this.firebaseRef.child('/notes').once('value', function (dataSnapshot) {
+				var items = [];
+
+				// get snapshot of all notes
+				dataSnapshot.forEach(function (childSnapshot) {
+					var item = childSnapshot.val();
+					item['key'] = childSnapshot.key;
+					items.push(item);
+				}.bind(this));
+
+				var view = localStorage.getItem("lastview");
+
+				// sets notes state variable equal to all notes (items)
+				// set viewURL equal to the current view
+				this.setState({
+					notes: items,
+					viewUrl: view
+				});
+
+				// assign a local variable to point to the functions for viewing/saving
+				var viewFunction = this.viewNoteImg;
+				var saveFunction = this.saveNoteId;
+
+				// extract slide number from viewURL
+				var slide = this.state.viewUrl.slice(44, 49);
+
+				// get the notes array from the notes state variable
+				var notes = this.state.notes;
+
+				// iterate through the notes to set up the note list items for display
+				var noteSet = Object.keys(notes).map(function (s) {
+					var viewpath = '/shownotes/' + notes[s].url;
+					var loc = notes[s].url.slice(55);
+					var notepath = '/singlenote/' + notes[s].key + '/' + loc;
+					if (notes[s].slide === slide) {
+						return _react2.default.createElement(
+							_reactRouter.Link,
+							{ to: notepath },
+							_react2.default.createElement(
+								'li',
+								{ id: 'noteitem', key: notes[s].key, className: 'lead' },
+								'Author: ',
+								notes[s].author,
+								_react2.default.createElement(
+									'button',
+									{ onClick: viewFunction, 'data-url': notes[s].url, 'data-sys': notes[s].system, 'data-struc': notes[s].structure, type: 'button', className: 'btn btn-muted btn-primary pull-right' },
+									'View Location'
+								),
+								_react2.default.createElement(
+									'button',
+									{ id: notes[s].key, onClick: saveFunction, 'data-key': notes[s].key, type: 'button', className: 'btn btn-muted btn-primary pull-right' },
+									'Save'
+								),
+								_react2.default.createElement('br', null),
+								'Subject: ',
+								notes[s].subject,
+								_react2.default.createElement('br', null),
+								'Note: ',
+								notes[s].body,
+								_react2.default.createElement('br', null)
+							)
+						);
+					} // end if 
+				});
+
+				this.setState({ noteset: noteSet });
+			}.bind(this));
+		},
+
+
+		// updates coordinates if user changes their location in the slide view    
+		componentWillUnmount: function componentWillUnmount() {
+			this.firebaseRef.off();
+
+			var coords = $('#scopeView').get(0).contentWindow.viewCoords;
+
+			if (coords) {
+				localStorage.setItem("lastview", coords);
+			}
+		},
 		render: function render() {
+
+			var url = this.state.viewUrl;
+
+			if (this.props.params.noteUrl) {
+				url = this.state.noteUrl;
+			} // end if
 
 			return _react2.default.createElement(
 				'div',
-				null,
-				'Pins'
+				{ className: 'appArea' },
+				_react2.default.createElement('iframe', { id: 'scopeView', src: url, height: '400', width: '100%' }),
+				_react2.default.createElement('br', null),
+				_react2.default.createElement('br', null),
+				_react2.default.createElement(
+					'div',
+					{ className: 'panel panel-primary' },
+					_react2.default.createElement(
+						'div',
+						{ className: 'panel-heading', id: 'slideNote-head' },
+						_react2.default.createElement(
+							'h4',
+							null,
+							'\xA0\xA0\xA0All Notes \xA0\xA0 ',
+							_react2.default.createElement(
+								_reactRouter.Link,
+								{ to: '/mynotescurrentslide' },
+								_react2.default.createElement(
+									'span',
+									{ id: 'inactive' },
+									'My Notes'
+								)
+							)
+						)
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'panel-body' },
+						_react2.default.createElement(
+							'ul',
+							null,
+							this.state.noteset
+						)
+					)
+				)
 			);
 		}
 	});
@@ -35168,132 +35981,201 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	var _firebase = __webpack_require__(223);
 
-	exports.default = _react2.default.createClass({
-		displayName: 'allnotes',
-		render: function render() {
+	var _firebase2 = _interopRequireDefault(_firebase);
 
-			return _react2.default.createElement(
-				'div',
-				null,
-				'AllNotes'
-			);
-		}
-	});
-
-/***/ }),
-/* 294 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
+	var _reactRouter = __webpack_require__(159);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	exports.default = _react2.default.createClass({
-		displayName: 'mynotes',
+		displayName: 'mynotescurrentslide',
+
+
+		// initialize state variables
+		getInitialState: function getInitialState() {
+			return {
+				currentUser: "",
+				noteSubject: "",
+				noteBody: "",
+				notes: "",
+				noteset: "",
+				viewUrl: ""
+			};
+		},
+
+		// function to adjust viewer window to match the note selected
+		viewNoteImg: function viewNoteImg(event) {
+
+			event.preventDefault();
+
+			var viewTarget = event.target.getAttribute('data-url');
+			localStorage.setItem("structure", event.target.getAttribute('data-struc'));
+			localStorage.setItem("system", event.target.getAttribute('data-sys'));
+
+			$("#scopeView").attr('src', viewTarget);
+		},
+
+		// saves noteId to the user's saved branch in Firebase
+		saveNoteId: function saveNoteId(e) {
+
+			e.preventDefault();
+
+			var saved = {};
+			var noteId = e.target.getAttribute('data-key');
+			var userID = localStorage.getItem('userId');
+			var dname = localStorage.getItem('displayName');
+
+			this.firebaseRef.child('/users/' + userID + '/saved/' + noteId).update({ displayname: dname });
+		},
+
+		componentDidMount: function componentDidMount() {
+			// set up Firebase connection & get reference to Histology branch
+			// allows data to be fetched
+			this.firebaseRef = _firebase2.default.database().ref("histology");
+			this.firebaseRef.child('/notes').once('value', function (dataSnapshot) {
+				var items = [];
+
+				// get snapshot of all notes
+				dataSnapshot.forEach(function (childSnapshot) {
+					var item = childSnapshot.val();
+					item['key'] = childSnapshot.key;
+					item.push(item);
+				}.bind(this));
+
+				var view = localStorage.getItem("lastview");
+
+				// set up array to receive user's notes
+				var mynotes = [];
+				// get user's Id from local storage
+				var me = localStorage.getItem("userId");
+
+				// go through all notes and push user's notes only into mynotes array
+				for (var i = 0; i < items.length; i++) {
+
+					if (items[i].authorId === me) {
+
+						mynotes.push(items[i]);
+					} // end if author is me
+				} // end for all notes
+
+				// sets notes state variable equal to mynotes
+				// set viewURL equal to the current view
+				this.setState({
+					notes: mynotes,
+					viewUrl: view
+				});
+
+				// assign a local variable to point to the functions for viewing/saving
+				var viewFunction = this.viewNoteImg;
+				var saveFunction = this.saveNoteId;
+
+				// extract slide number from viewURL
+				var slide = this.state.viewUrl.slice(44, 49);
+				// get the notes array from the notes state variable
+				var notes = this.state.notes;
+				// iterate through the user's notes to set up the note list items for display
+				var noteSet = Object.keys(notes).map(function (s) {
+					var url = notes[s].url;
+					var num = url.slice(44, 49);
+					var loc = url.slice(55);
+					var viewpath = '/shownotes/' + notes[s].url;
+					var notepath = '/singlenote/' + notes[s].key + '/' + loc;
+
+					if (notes[s].slide === slide) {
+						return _react2.default.createElement(
+							_reactRouter.Link,
+							{ to: notepath },
+							_react2.default.createElement(
+								'li',
+								{ id: 'noteitem', key: notes[s].key, className: 'lead' },
+								'Author: ',
+								notes[s].author,
+								_react2.default.createElement(
+									'button',
+									{ onClick: viewFunction, 'data-url': notes[s].url, type: 'button', className: 'btn btn-muted btn-primary pull-right' },
+									'View Location'
+								),
+								_react2.default.createElement('br', null),
+								'Subject: ',
+								notes[s].subject,
+								_react2.default.createElement('br', null),
+								'Note: ',
+								notes[s].body,
+								_react2.default.createElement('br', null)
+							)
+						);
+					} // end if 
+				}); // end object
+
+				this.setState({ noteset: noteSet });
+			}.bind(this));
+		},
+
+
+		// updates coordinates if user changes their location in the slide view
+		componentWillUnmount: function componentWillUnmount() {
+			this.firebaseRef.off();
+
+			var coords = $('#scopeView').get(0).contentWindow.viewCoords;
+			if (coords) {
+				localStorage.setItem("lastview", coords);
+			}
+		},
 		render: function render() {
+
+			var url = this.state.viewUrl;
+
+			if (this.props.params.noteUrl) {
+				url = this.state.noteUrl;
+			} // end if
 
 			return _react2.default.createElement(
 				'div',
-				null,
-				'MyNotes'
-			);
-		}
-	});
+				{ className: 'appArea' },
+				_react2.default.createElement('iframe', { id: 'scopeView', src: url, height: '400', width: '100%' }),
+				_react2.default.createElement('br', null),
+				_react2.default.createElement('br', null),
+				_react2.default.createElement(
+					'div',
+					{ className: 'panel panel-primary' },
+					'\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0',
+					_react2.default.createElement(
+						'div',
+						{ className: 'panel-heading', id: 'slideNote-head' },
+						'\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0 ',
+						_react2.default.createElement(
+							'h4',
+							null,
+							'\xA0\xA0\xA0',
+							_react2.default.createElement(
+								_reactRouter.Link,
+								{ to: '/allnotescurrentslide' },
+								_react2.default.createElement(
+									'span',
+									{ id: 'inactive' },
+									'All Notes'
+								)
+							),
+							' \xA0\xA0 My Notes'
+						),
+						'\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0 '
+					),
+					'\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0',
+					_react2.default.createElement(
+						'div',
+						{ className: 'panel-body' },
+						_react2.default.createElement(
+							'ul',
+							null,
+							this.state.noteset
+						)
+					)
+				)
+			); // end of return
+		} // end of render
 
-/***/ }),
-/* 295 */,
-/* 296 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.default = _react2.default.createClass({
-		displayName: 'notes',
-		render: function render() {
-
-			return _react2.default.createElement(
-				'div',
-				null,
-				'Notes'
-			);
-		}
-	});
-
-/***/ }),
-/* 297 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.default = _react2.default.createClass({
-		displayName: 'savednotes',
-		render: function render() {
-
-			return _react2.default.createElement(
-				'div',
-				null,
-				'SavedNotes'
-			);
-		}
-	});
-
-/***/ }),
-/* 298 */,
-/* 299 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.default = _react2.default.createClass({
-		displayName: 'singlenote',
-		render: function render() {
-
-			return _react2.default.createElement(
-				'div',
-				null,
-				'SingleNote'
-			);
-		}
 	});
 
 /***/ })

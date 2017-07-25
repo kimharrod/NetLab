@@ -36,7 +36,7 @@ export default React.createClass({
 
   		var saved = {};
   		var noteId = e.target.getAttribute('data-key');
-  		var userID = localStorage.getItem('userId';
+  		var userID = localStorage.getItem('userId');
   		var dname = localStorage.getItem('displayName');
 
   		this.firebaseRef.child('/users/' + userID + '/saved/' + noteId).update({displayname: dname});

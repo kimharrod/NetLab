@@ -20,7 +20,7 @@ Students can add their own notes to slides, save notes and pin important slide l
 
 ### Dependencies and Packages
 
-The app requires the 'mongoose', 'express', 'react', 'react-dom', 'react-router', 'reactfire', 'firebase', 'firebaseui', request', 'body-parser' and 'morgan' npm packages.
+The app requires the 'mongoose', 'express', 'react', 'react-dom', 'react-router', 'firebase', 'firebaseui', request', 'body-parser' and 'morgan' npm packages.
 
 Development dependencies are as follows: 'webpack', babel-core' 'babel-loader', 'babel-preset-react' and'babel-preset-es2015'.
   
