@@ -50,8 +50,7 @@ componentDidMount() {
 	            return ( 
 	              <li id="pinitem" key={pins[s].key} className="lead"><Link to={pinpath}>
 	                System: {pins[s].system}<br/>
-	                Structure: {pins[s].structure}<br/>
-	                Location: {pins[s].location}</Link><br/>
+	                Structure: {pins[s].structure}</Link><br/>
 	                </li>
 	            ) 
         }); 
