@@ -1,3 +1,60 @@
+
+.appArea{
+
+   margin-top: 38px;
+
+}
+
+
+#fullScopeView {
+
+    height: 95vh; 
+    width:  100vw;
+    margin-top: 38px;
+}
+
+.navbar-brand {
+
+  margin-top: 3px;
+}
+
+.navbar-nav {
+
+  margin-top: 7px;
+}
+
+#login-panel {
+  width: 488px ;
+  margin-left: auto ;
+  margin-right: auto ;
+  background-color: white;
+}
+
+#loginlogo {
+
+ font-family: 'Comfortaa';
+ font-size: 120px; 
+ font-weight: bolder;
+
+}
+
+#navlogo {
+
+ font-family: 'Comfortaa';
+ font-size: 28px; 
+ font-weight: bolder;
+ color: white;
+
+}
+
+#menu {
+  width: 700px ;
+  margin-left: auto ;
+  margin-right: auto ;
+
+}
+
+
 h1 {
 
   color: #aaaaaa;
@@ -28,13 +85,24 @@ h3 {
 
 }
 
-.tab-pane {
- position: absolute;
-   top: 420px;
-   bottom: 0;
-   right: 0;
-   left: 0;
-   overflow:auto;
+.fixed-panel {
+  min-height: 5;
+  max-height: 5;
+  overflow-y: scroll;
+}
+
+#slideNote-head {
+
+  padding-top: 1px;
+  padding-bottom: 0px;
+  background-color: #333333;
+
+}
+
+#inactive {
+
+  color: #999999;
+
 }
 
 .content {
@@ -119,4 +187,225 @@ h3 {
   outline: none;
   color: #666666;
   background-color: #292929;
+}
+
+.icon-bar {
+    width: 100%; /* Full-width */
+    background-color: #555; /* Dark-grey background */
+    overflow: auto; /* Overflow due to float */
+}
+
+.icon-bar a {
+    float: left; /* Float links side by side */
+    text-align: center; /* Center-align text */
+    width: 20%; /* Equal width (5 icons with 20% width each = 100%)
+    padding: 12px 0; /* Some top and bottom padding */
+    transition: all 0.3s ease; /* Add transition for hover effects */
+    color: white; /* White text color */
+    font-size: 15px; /* Increased font size */
+}
+
+.icon-bar a:hover {
+    background-color: #000; /* Add a hover color */
+}
+
+.active {
+    background-color: #4CAF50; /* Add an active/current color */
+}
+
+#footer {
+
+  display: none;
+
+}
+
+@media (max-width: 70em) {
+
+ /* Bump up size of carousel content */
+  #header {
+    height: 1px;
+    display: none;
+  }
+
+  #footer {
+
+    display: block;
+  }
+
+.appArea {
+
+  height: 100%;
+  margin-top: 0px;
+  margin-bottom: 30px;
+
+
+}
+
+.panel {
+
+  margin-bottom: 30px;
+
+
+}
+
+#fullScopeView {
+
+    height: 85vh; 
+    width:  100vw;
+    margin-top: 0px;
+    /*zoom: 2.0;
+    -moz-transform: scale(2.0);
+    -webkit-transform: scale(2.0);*/
+
+}
+
+#scopeView {
+
+    height: 50vh; 
+    width:  100vw;
+    margin-top: 0px;
+    /*zoom: 2.0;
+    -moz-transform: scale(2.0);
+    -webkit-transform: scale(2.0);*/
+
+}
+
+.icon-bar a {
+    font-size: 58px; /* Increased font size */
+}
+
+#addNote {
+  position: absolute;
+  bottom: 330px;
+  right: 25px;
+  border: none;
+  color: white;
+  background-color: #333333;
+  outline: none;
+  font-size: 70px;
+}
+
+
+#showNotes {
+  position: absolute;
+  bottom: 130px;
+  right: 25px;
+  border: none;
+  color: white;
+  background-color: #333333;
+  outline: none;
+  font-size: 70px;
+}
+
+#pinLoc {
+  position: absolute;
+  bottom: 230px;
+  right: 25px;
+  border: none;
+  color: white;
+  background-color: #333333;
+  outline: none;
+  font-size: 70px;
+}
+
+.lead {
+
+  font-size: 20px;
+
+}
+
+.btn {
+
+  font-size: 20px;
+
+}
+
+input {
+
+  font-size: 20px;
+
+}
+
+#noteSubject {
+
+  font-size: 20px; 
+  height: 40px;
+
+}
+
+#noteBody {
+
+  font-size: 50px;
+
+}
+
+
+.page-borders-none #mobileMenuLink {
+     display: none !important;
+ }
+
+
+h1 {
+
+  font-size: 22px;
+
+}
+
+h2 {
+
+   font-size: 20px;
+
+}
+
+
+h3 {
+
+  font-size: 18px;
+}
+
+h4 {
+
+  font-size: 14px;
+}
+
+#pinitem:before {
+    /*Using a Bootstrap glyphicon as the bullet point*/
+    content: "\e062";
+    font-family: 'Glyphicons Halflings';
+    font-size: 60px;
+    float: left;
+    margin-top: 4px;
+    margin-left: -27px;
+    color: #CCCCCC;
+    opacity: 1;
+}
+
+#slideitem:before {
+    /*Using a Bootstrap glyphicon as the bullet point*/
+    content: "\f283";
+    font-family: 'WebHostingHub-Glyphs';
+    font-size: 60px;
+    float: left;
+    margin-top: -5px;
+    margin-left: -27px;
+    color: #CCCCCC;
+}
+
+#noteitem:before {
+    /*Using a Bootstrap glyphicon as the bullet point*/
+    content: "\e022";
+    font-family: 'Glyphicons Halflings';
+    font-size: 60px;
+    float: left;
+    margin-top: 4px;
+    margin-left: -27px;
+    color: #CCCCCC;
+}
+
+#menu {
+  width: 90vw;
+  margin-left: auto ;
+  margin-right: auto ;
+}
+
 }
