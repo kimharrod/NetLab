@@ -5,7 +5,6 @@
 
 }
 
-
 #fullScopeView {
 
     height: 95vh; 
@@ -24,7 +23,9 @@
 }
 
 #login-panel {
-  width: 488px ;
+
+  margin-top: 100px;
+  width: 388px ;
   margin-left: auto ;
   margin-right: auto ;
   background-color: white;
@@ -33,7 +34,7 @@
 #loginlogo {
 
  font-family: 'Comfortaa';
- font-size: 120px; 
+ font-size: 100px; 
  font-weight: bolder;
 
 }
@@ -51,7 +52,6 @@
   width: 700px ;
   margin-left: auto ;
   margin-right: auto ;
-
 }
 
 
@@ -271,41 +271,41 @@ h3 {
 }
 
 .icon-bar a {
-    font-size: 58px; /* Increased font size */
+    font-size: 28px; /* Increased font size */
 }
 
 #addNote {
   position: absolute;
-  bottom: 330px;
-  right: 25px;
+  bottom: 140px;
+  right: 10px;
   border: none;
   color: white;
   background-color: #333333;
   outline: none;
-  font-size: 70px;
+  font-size: 22px;
 }
 
 
 #showNotes {
   position: absolute;
-  bottom: 130px;
-  right: 25px;
+  bottom: 50px;
+  right: 10px;
   border: none;
   color: white;
   background-color: #333333;
   outline: none;
-  font-size: 70px;
+  font-size: 22px;
 }
 
 #pinLoc {
   position: absolute;
-  bottom: 230px;
-  right: 25px;
+  bottom: 95px;
+  right: 10px;
   border: none;
   color: white;
   background-color: #333333;
   outline: none;
-  font-size: 70px;
+  font-size: 22px;
 }
 
 .lead {
@@ -328,14 +328,14 @@ input {
 
 #noteSubject {
 
-  font-size: 20px; 
+  font-size: 20px;
   height: 40px;
 
 }
 
 #noteBody {
 
-  font-size: 50px;
+  font-size: 20px;
 
 }
 
@@ -347,32 +347,32 @@ input {
 
 h1 {
 
-  font-size: 22px;
+  font-size: 32px;
 
 }
 
 h2 {
 
-   font-size: 20px;
+   font-size: 28px;
 
 }
 
 
 h3 {
 
-  font-size: 18px;
+  font-size: 240px;
 }
 
 h4 {
 
-  font-size: 14px;
+  font-size: 20px;
 }
 
 #pinitem:before {
     /*Using a Bootstrap glyphicon as the bullet point*/
     content: "\e062";
     font-family: 'Glyphicons Halflings';
-    font-size: 60px;
+    font-size: 20px;
     float: left;
     margin-top: 4px;
     margin-left: -27px;
@@ -384,7 +384,7 @@ h4 {
     /*Using a Bootstrap glyphicon as the bullet point*/
     content: "\f283";
     font-family: 'WebHostingHub-Glyphs';
-    font-size: 60px;
+    font-size: 20px;
     float: left;
     margin-top: -5px;
     margin-left: -27px;
@@ -395,7 +395,7 @@ h4 {
     /*Using a Bootstrap glyphicon as the bullet point*/
     content: "\e022";
     font-family: 'Glyphicons Halflings';
-    font-size: 60px;
+    font-size: 20px;
     float: left;
     margin-top: 4px;
     margin-left: -27px;

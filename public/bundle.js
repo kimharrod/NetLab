@@ -86,7 +86,7 @@
 
 	var _createnote2 = _interopRequireDefault(_createnote);
 
-	var _pins = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./children/pins\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _pins = __webpack_require__(290);
 
 	var _pins2 = _interopRequireDefault(_pins);
 
@@ -116,9 +116,10 @@
 			_reactRouter.Route,
 			{ path: '/home', component: _home2.default },
 			_react2.default.createElement(_reactRouter.IndexRoute, { component: _menu2.default }),
+			_react2.default.createElement(_reactRouter.Route, { path: '/menu', component: _menu2.default }),
 			_react2.default.createElement(_reactRouter.Route, { path: '/mynotesall', component: _mynotesall2.default }),
 			_react2.default.createElement(_reactRouter.Route, { path: '/savednotes', component: _savednotes2.default }),
-			_react2.default.createElement(_reactRouter.Route, { path: '/createnote', component: Newnote }),
+			_react2.default.createElement(_reactRouter.Route, { path: '/createnote', component: _createnote2.default }),
 			_react2.default.createElement(_reactRouter.Route, { path: '/pins', component: _pins2.default }),
 			_react2.default.createElement(_reactRouter.Route, { path: '/profile', component: _profile2.default }),
 			_react2.default.createElement(_reactRouter.Route, { path: '/allnotescurrentslide', component: _allnotescurrentslide2.default }),
@@ -35607,7 +35608,125 @@
 	}); // end of render
 
 /***/ }),
-/* 290 */,
+/* 290 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _firebase = __webpack_require__(223);
+
+	var _firebase2 = _interopRequireDefault(_firebase);
+
+	var _reactRouter = __webpack_require__(159);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+		displayName: 'pins',
+
+
+		// initialize state variables
+		getInitialState: function getInitialState() {
+			return {
+				currentUser: "",
+				noteSubject: "",
+				noteBody: "",
+				pins: "",
+				noteset: "",
+				viewUrl: ""
+			};
+		},
+
+		componentDidMount: function componentDidMount() {
+			// set up Firebase connection & get reference to Histology branch
+			// allows data to be fetched from the user's branch    
+			this.firebaseRef = _firebase2.default.database().ref("histology");
+			var userId = localStorage.getItem("userId");
+			this.firebaseRef.child('/users/' + userId + '/pins').once('value', function (dataSnapshot) {
+				var items = [];
+
+				// get a snapshot of all pins
+				dataSnapshot.forEach(function (childSnapshot) {
+					var item = childSnapshot.val();
+					item['key'] = childSnapshot.key;
+					items.push(item);
+				}.bind(this));
+				var view = localStorage.getItem("lastview");
+
+				// sets pins state variable equal to all the user's pins (items)
+				// set viewURL equal to the current view
+				this.setState({
+					pins: items,
+					viewUrl: view
+				});
+
+				// get the pins array from the pins state variable
+				var pins = this.state.pins;
+				// iterate through the user's pins to set up the pin list items for display
+				var pinSet = Object.keys(pins).map(function (s) {
+					var url = pins[s].url;
+					var num = url.slice(44, 49);
+					var loc = url.slice(55);
+					var pinpath = '/pin/' + num + '/' + loc + '/' + pins[s].structure + '/' + pins[s].system;
+					return _react2.default.createElement(
+						'li',
+						{ id: 'pinitem', key: pins[s].key, className: 'lead' },
+						_react2.default.createElement(
+							_reactRouter.Link,
+							{ to: pinpath },
+							'System: ',
+							pins[s].system,
+							_react2.default.createElement('br', null),
+							'Structure: ',
+							pins[s].structure
+						),
+						_react2.default.createElement('br', null)
+					);
+				});
+
+				this.setState({ pinset: pinSet });
+			}.bind(this));
+		},
+		render: function render() {
+
+			return _react2.default.createElement(
+				'div',
+				{ className: 'appArea' },
+				_react2.default.createElement(
+					'div',
+					{ className: 'panel panel-primary' },
+					_react2.default.createElement(
+						'div',
+						{ className: 'panel-heading', id: 'slideNote-head' },
+						_react2.default.createElement(
+							'h4',
+							null,
+							'\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0Location Pins'
+						)
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'panel-body' },
+						_react2.default.createElement(
+							'ul',
+							null,
+							this.state.pinset
+						)
+					)
+				)
+			);
+		}
+	});
+
+/***/ }),
 /* 291 */
 /***/ (function(module, exports, __webpack_require__) {
 

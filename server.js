@@ -12,7 +12,7 @@ var Slide = require("./models/slide.js");
 
 // Initialize Express
 var dbapp = express();
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 8028;
 
 // Use morgan and body parser
 dbapp.use(logger("dev"));

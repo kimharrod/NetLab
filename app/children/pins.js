@@ -67,7 +67,7 @@ componentDidMount() {
 
     return ( 
 
-		<div className="appArea>"
+		<div className="appArea">
 	        <div className="panel panel-primary">
 		          
 	          <div className="panel-heading" id="slideNote-head">

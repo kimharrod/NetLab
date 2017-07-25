@@ -26,9 +26,10 @@ render((
 
 			{/* make the following components children of "Home" */}
 			<IndexRoute component={Menu}/>
+			<Route path="/menu" component={Menu}/>
       		<Route path="/mynotesall" component={Mynotesall}/>
 			<Route path="/savednotes" component={Savednotes}/>
-      		<Route path="/createnote" component={Newnote}/>
+      		<Route path="/createnote" component={Createnote}/>
       		<Route path="/pins" component={Pins}/>
       		<Route path="/profile" component={Profile}/>
       		<Route path="/allnotescurrentslide" component={Allnotescurrentslide}/>
