@@ -84,7 +84,7 @@ deleteNote() {
               <p className="lead">
                 Author: {author}<br/>
                 System: {system}<br/>
-                Structure: {structure}<button onClick={this.deleteNote} data-key={key} type="button" className="btn btn-muted btn-primary pull-right">Delete Note</button><br/>
+                Structure: {structure}<button onClick={this.deleteNote} data-key={key} type="button" className="btn btn-muted btn-primary pull-right"><i className="icon-circledelete"/></button><br/>
                 <br/>
                 Subject: {subject}<br/>
                 Note: {body}

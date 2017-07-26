@@ -86,8 +86,7 @@ componentDidMount() {
 	              	<Link to={notepath}>
 	              		<li id="noteitem" key={notes[s].key} className="lead">
 		                Author: {notes[s].author} 
-		                <button onClick={viewFunction} data-url={notes[s].url} data-sys={notes[s].system} data-struc={notes[s].structure} type="button" className="btn btn-muted btn-primary pull-right">View Location</button>
-		                <button id={notes[s].key} onClick={saveFunction} data-key={notes[s].key} type="button" className="btn btn-muted btn-primary pull-right">Save</button>
+		                <button id={notes[s].key} onClick={saveFunction} data-key={notes[s].key} type="button" className="btn btn-muted btn-primary pull-right"><i className="icon-download-alt"/></button>
 		                <br/>
 		                Subject: {notes[s].subject}<br/>
 	                	Note: {notes[s].body}<br/>
