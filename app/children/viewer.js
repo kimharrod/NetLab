@@ -89,6 +89,7 @@ pinThis: function () {
   		// or display the slide selected from menu
   		// include buttons for adding and showing notes
 	   	return <div>
+      <span id="strucName">{localStorage.getItem("structure")}</span>
       <Link to='/createnote'><button id="addNote" className="btn btn-default btn-small"><span className="glyphicon glyphicon-pencil"></span></button></Link>
       <iframe id="fullScopeView" src={url} height="600" width="100%"></iframe>
       <Link to='/allnotescurrentslide'><button id="showNotes" className="btn btn-default btn-small"><span className="glyphicon glyphicon-list-alt"></span></button></Link>

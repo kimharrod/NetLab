@@ -138,7 +138,7 @@ export default React.createClass({
 
 	    return ( 
 	   
-	      <div className="appArea"><iframe id="scopeView" src={url} height="400" width="100%"></iframe><br/><br/>
+	      <div className="appArea"><span id="strucName">{localStorage.getItem("structure")}</span><iframe id="scopeView" src={url} height="400" width="100%"></iframe><br/><br/>
 
 	       	<div className="panel panel-primary">
 	            <div className="panel-heading" id="slideNote-head">

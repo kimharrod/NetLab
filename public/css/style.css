@@ -5,6 +5,40 @@
 
 }
 
+#strucName {
+
+  position: absolute;
+  top: 63px;
+  left: 55px;
+  font-weight: bolder;
+
+}
+
+#deleteNote {
+
+  font-size: 28px;
+  font-weight: bolder;
+
+
+}
+
+#unsaveNote {
+
+  font-size: 28px;
+  font-weight: bolder;
+
+
+}
+
+#saveNote {
+
+  font-size: 28px;
+  font-weight: bolder;
+  margin-right: 15px;
+
+
+}
+
 #fullScopeView {
 
     height: 95vh; 
@@ -23,9 +57,7 @@
 }
 
 #login-panel {
-
-  margin-top: 100px;
-  width: 388px ;
+  width: 488px ;
   margin-left: auto ;
   margin-right: auto ;
   background-color: white;
@@ -34,7 +66,7 @@
 #loginlogo {
 
  font-family: 'Comfortaa';
- font-size: 100px; 
+ font-size: 120px; 
  font-weight: bolder;
 
 }
@@ -52,6 +84,7 @@
   width: 700px ;
   margin-left: auto ;
   margin-right: auto ;
+
 }
 
 
@@ -219,9 +252,11 @@ h3 {
 
 }
 
+/*  Set the breakpoint for phones  */
+
 @media (max-width: 70em) {
 
- /* Bump up size of carousel content */
+
   #header {
     height: 1px;
     display: none;
@@ -271,41 +306,41 @@ h3 {
 }
 
 .icon-bar a {
-    font-size: 28px; /* Increased font size */
+    font-size: 58px; /* Increased font size */
 }
 
 #addNote {
   position: absolute;
-  bottom: 140px;
-  right: 10px;
+  bottom: 330px;
+  right: 25px;
   border: none;
   color: white;
   background-color: #333333;
   outline: none;
-  font-size: 22px;
+  font-size: 70px;
 }
 
 
 #showNotes {
   position: absolute;
-  bottom: 50px;
-  right: 10px;
+  bottom: 130px;
+  right: 25px;
   border: none;
   color: white;
   background-color: #333333;
   outline: none;
-  font-size: 22px;
+  font-size: 70px;
 }
 
 #pinLoc {
   position: absolute;
-  bottom: 95px;
-  right: 10px;
+  bottom: 230px;
+  right: 25px;
   border: none;
   color: white;
   background-color: #333333;
   outline: none;
-  font-size: 22px;
+  font-size: 70px;
 }
 
 .lead {
@@ -328,14 +363,14 @@ input {
 
 #noteSubject {
 
-  font-size: 20px;
+  font-size: 20px; 
   height: 40px;
 
 }
 
 #noteBody {
 
-  font-size: 20px;
+  font-size: 50px;
 
 }
 
@@ -347,32 +382,32 @@ input {
 
 h1 {
 
-  font-size: 32px;
+  font-size: 22px;
 
 }
 
 h2 {
 
-   font-size: 28px;
+   font-size: 20px;
 
 }
 
 
 h3 {
 
-  font-size: 240px;
+  font-size: 18px;
 }
 
 h4 {
 
-  font-size: 20px;
+  font-size: 14px;
 }
 
 #pinitem:before {
     /*Using a Bootstrap glyphicon as the bullet point*/
     content: "\e062";
     font-family: 'Glyphicons Halflings';
-    font-size: 20px;
+    font-size: 60px;
     float: left;
     margin-top: 4px;
     margin-left: -27px;
@@ -384,7 +419,7 @@ h4 {
     /*Using a Bootstrap glyphicon as the bullet point*/
     content: "\f283";
     font-family: 'WebHostingHub-Glyphs';
-    font-size: 20px;
+    font-size: 60px;
     float: left;
     margin-top: -5px;
     margin-left: -27px;
@@ -395,7 +430,7 @@ h4 {
     /*Using a Bootstrap glyphicon as the bullet point*/
     content: "\e022";
     font-family: 'Glyphicons Halflings';
-    font-size: 20px;
+    font-size: 60px;
     float: left;
     margin-top: 4px;
     margin-left: -27px;

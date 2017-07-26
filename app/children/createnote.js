@@ -3,11 +3,12 @@ import Firebase from 'firebase'
 
 export default React.createClass({
 
-	// initialize state variable 
+	// initialize state variables
+	// insert the structure name as the default note subject  
 	getInitialState: function() {
 		return {
 			currentUser: "",
-			noteSubject: "",
+			noteSubject: localStorage.getItem("structure"),
 			noteBody: ""		
 		};
 	},
@@ -81,8 +82,9 @@ export default React.createClass({
 
 		// get the last viewed location...
 		var url = localStorage.getItem("lastview");
-		// and display it:
+		// and display it, along with the structure name at the top left corner
 		return <div className="appArea">
+		<span id="strucName">{localStorage.getItem("structure")}</span>
 		<iframe id="scopeView" src={url} height="350" width="100%"></iframe>
 
 

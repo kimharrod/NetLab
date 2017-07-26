@@ -86,7 +86,7 @@ componentDidMount() {
 	              	<Link to={notepath}>
 	              		<li id="noteitem" key={notes[s].key} className="lead">
 		                Author: {notes[s].author} 
-		                <button id={notes[s].key} onClick={saveFunction} data-key={notes[s].key} type="button" className="btn btn-muted btn-primary pull-right"><i className="icon-download-alt"/></button>
+		                <button id={notes[s].key} onClick={saveFunction} data-key={notes[s].key} type="button" className="btn btn-muted btn-primary pull-right" data-toggle="tooltip" title="Save Note">+</button>
 		                <br/>
 		                Subject: {notes[s].subject}<br/>
 	                	Note: {notes[s].body}<br/>
@@ -125,7 +125,7 @@ componentWillUnmount() {
 
     return ( 
    
-	    <div className="appArea"><iframe id="scopeView" src={url} height="400" width="100%"></iframe><br/><br/>
+	    <div className="appArea"><span id="strucName">{localStorage.getItem("structure")}</span><iframe id="scopeView" src={url} height="400" width="100%"></iframe><br/><br/>
 	 
 	        <div className="panel panel-primary">
 	        	<div className="panel-heading" id="slideNote-head">

@@ -34939,6 +34939,11 @@
 	      'div',
 	      null,
 	      _react2.default.createElement(
+	        'span',
+	        { id: 'strucName' },
+	        localStorage.getItem("structure")
+	      ),
+	      _react2.default.createElement(
 	        _reactRouter.Link,
 	        { to: '/createnote' },
 	        _react2.default.createElement(
@@ -35103,10 +35108,9 @@
 	            structure,
 	            _react2.default.createElement(
 	              'button',
-	              { onClick: this.deleteNote, 'data-key': key, type: 'button', className: 'btn btn-muted btn-primary pull-right' },
-	              'Delete Note'
+	              { onClick: this.deleteNote, 'data-key': key, type: 'button', className: 'btn btn-muted btn-primary pull-right', 'data-toggle': 'tooltip', title: 'Delete Note' },
+	              '\xD7'
 	            ),
-	            _react2.default.createElement('br', null),
 	            _react2.default.createElement('br', null),
 	            'Subject: ',
 	            subject,
@@ -35315,6 +35319,19 @@
 			};
 		},
 
+		unsaveNote: function unsaveNote(e) {
+
+			e.preventDefault();
+
+			console.log("in unsaveNote");
+			var userId = localStorage.getItem("userId");
+			var noteId = e.target.getAttribute('data-key');
+
+			console.log("in unsaveNote for key: " + noteId);
+			this.firebaseRef.child('/users/' + userId + '/saved/' + noteId).remove();
+			location.reload();
+		},
+
 		componentDidMount: function componentDidMount() {
 			// set up Firebase connection & get reference to Histology branch
 			// allows all slide note data to be fetched 
@@ -35348,7 +35365,7 @@
 
 					for (var i = 0; i < items.length; i++) {
 
-						if (savedlist.indexOf(items[i].key) > 0) {
+						if (savedlist.indexOf(items[i].key) > -1) {
 
 							console.log("saved note: " + items[i].key);
 							savednotes.push(items[i]);
@@ -35364,6 +35381,7 @@
 
 					// get the saved notes array from the notes state variable
 					var notes = this.state.notes;
+					var unsaveFunction = this.unsaveNote;
 					// iterate through the user's notes to set up the saved note list items for display  
 					var noteSet = Object.keys(notes).map(function (s) {
 						var url = notes[s].url;
@@ -35371,24 +35389,33 @@
 						var loc = url.slice(55);
 						var notepath = '/singlenote/' + notes[s].key + '/' + loc;
 						return _react2.default.createElement(
-							_reactRouter.Link,
-							{ to: notepath },
+							'li',
+							{ id: 'noteitem', key: notes[s].key, className: 'lead' },
+							'\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0',
 							_react2.default.createElement(
-								'li',
-								{ id: 'noteitem', key: notes[s].key, className: 'lead' },
+								'button',
+								{ id: 'unsaveNote', onClick: unsaveFunction, 'data-key': notes[s].key, type: 'button', className: 'btn btn-muted btn-primary pull-right', 'data-toggle': 'tooltip', title: 'Unsave Note' },
+								'\xD7'
+							),
+							'\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0',
+							_react2.default.createElement(
+								_reactRouter.Link,
+								{ to: notepath },
 								'Author: ',
 								notes[s].author,
 								_react2.default.createElement('br', null),
-								'Structure: ',
+								'\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0Structure: ',
 								notes[s].structure,
 								_react2.default.createElement('br', null),
-								'Subject: ',
+								'\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0Subject: ',
 								notes[s].subject,
 								_react2.default.createElement('br', null),
-								'Note: ',
+								'\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0Note: ',
 								notes[s].body,
-								_react2.default.createElement('br', null)
-							)
+								_react2.default.createElement('br', null),
+								'\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0'
+							),
+							'\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0    '
 						);
 					});
 
@@ -35471,11 +35498,12 @@
 		displayName: 'createnote',
 
 
-		// initialize state variable 
+		// initialize state variables
+		// insert the structure name as the default note subject  
 		getInitialState: function getInitialState() {
 			return {
 				currentUser: "",
-				noteSubject: "",
+				noteSubject: localStorage.getItem("structure"),
 				noteBody: ""
 			};
 		},
@@ -35549,10 +35577,15 @@
 
 			// get the last viewed location...
 			var url = localStorage.getItem("lastview");
-			// and display it:
+			// and display it, along with the structure name at the top left corner
 			return _react2.default.createElement(
 				'div',
 				{ className: 'appArea' },
+				_react2.default.createElement(
+					'span',
+					{ id: 'strucName' },
+					localStorage.getItem("structure")
+				),
 				_react2.default.createElement('iframe', { id: 'scopeView', src: url, height: '350', width: '100%' }),
 				_react2.default.createElement(
 					'div',
@@ -36002,13 +36035,8 @@
 								notes[s].author,
 								_react2.default.createElement(
 									'button',
-									{ onClick: viewFunction, 'data-url': notes[s].url, 'data-sys': notes[s].system, 'data-struc': notes[s].structure, type: 'button', className: 'btn btn-muted btn-primary pull-right' },
-									'View Location'
-								),
-								_react2.default.createElement(
-									'button',
-									{ id: notes[s].key, onClick: saveFunction, 'data-key': notes[s].key, type: 'button', className: 'btn btn-muted btn-primary pull-right' },
-									'Save'
+									{ id: notes[s].key, onClick: saveFunction, 'data-key': notes[s].key, type: 'button', className: 'btn btn-muted btn-primary pull-right', 'data-toggle': 'tooltip', title: 'Save Note' },
+									'+'
 								),
 								_react2.default.createElement('br', null),
 								'Subject: ',
@@ -36048,6 +36076,11 @@
 			return _react2.default.createElement(
 				'div',
 				{ className: 'appArea' },
+				_react2.default.createElement(
+					'span',
+					{ id: 'strucName' },
+					localStorage.getItem("structure")
+				),
 				_react2.default.createElement('iframe', { id: 'scopeView', src: url, height: '400', width: '100%' }),
 				_react2.default.createElement('br', null),
 				_react2.default.createElement('br', null),
@@ -36253,6 +36286,11 @@
 			return _react2.default.createElement(
 				'div',
 				{ className: 'appArea' },
+				_react2.default.createElement(
+					'span',
+					{ id: 'strucName' },
+					localStorage.getItem("structure")
+				),
 				_react2.default.createElement('iframe', { id: 'scopeView', src: url, height: '400', width: '100%' }),
 				_react2.default.createElement('br', null),
 				_react2.default.createElement('br', null),

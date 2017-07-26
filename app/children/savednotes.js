@@ -16,6 +16,20 @@ getInitialState: function() {
 	    };
   	},
 
+unsaveNote: function(e){
+
+    e.preventDefault();
+
+    console.log("in unsaveNote");
+    var userId = localStorage.getItem("userId");
+    var noteId = e.target.getAttribute('data-key');
+
+    console.log("in unsaveNote for key: " + noteId);
+    this.firebaseRef.child('/users/' + userId + '/saved/' + noteId).remove();
+    location.reload();
+
+},
+
 componentDidMount() {
     // set up Firebase connection & get reference to Histology branch
 	// allows all slide note data to be fetched 
@@ -49,7 +63,7 @@ componentDidMount() {
   
 		      	for (var i = 0; i < items.length; i++) {
 
-			        if (savedlist.indexOf(items[i].key) > 0) {
+			        if (savedlist.indexOf(items[i].key) > -1) {
 
 			          console.log("saved note: " + items[i].key);
 			          savednotes.push(items[i]);
@@ -67,6 +81,7 @@ componentDidMount() {
 
 		    // get the saved notes array from the notes state variable
 		    var notes = this.state.notes;
+		    var unsaveFunction = this.unsaveNote;
 		    // iterate through the user's notes to set up the saved note list items for display  
 		    var noteSet = Object.keys(notes).map(function(s){ 
 			    var url = notes[s].url;
@@ -74,12 +89,16 @@ componentDidMount() {
 			    var loc = url.slice(55);
 			    var notepath = '/singlenote/' + notes[s].key + '/' + loc;
 			            return (
-			              <Link to={notepath}><li id="noteitem" key={notes[s].key} className="lead">
-			                Author: {notes[s].author}<br/>
-			                Structure: {notes[s].structure}<br/>
-			                Subject: {notes[s].subject}<br/>
-			                Note: {notes[s].body}<br/>
-			                </li></Link>
+			       
+							<li id="noteitem" key={notes[s].key} className="lead">
+				                <button id="unsaveNote" onClick={unsaveFunction} data-key={notes[s].key} type="button" className="btn btn-muted btn-primary pull-right" data-toggle="tooltip" title="Unsave Note">&#215;</button>
+				                <Link to={notepath}>Author: {notes[s].author}<br/>
+				                Structure: {notes[s].structure}<br/>
+				                Subject: {notes[s].subject}<br/>
+				                Note: {notes[s].body}<br/>
+				                </Link>
+              				</li>
+
 			            ) 
 	        	}); 
 		 
